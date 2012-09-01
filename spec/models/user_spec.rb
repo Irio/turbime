@@ -100,5 +100,6 @@ describe User do
 
   describe "associations" do
     it { should have_many :projects }
+    it { should have_many :supports }
   end
 end
