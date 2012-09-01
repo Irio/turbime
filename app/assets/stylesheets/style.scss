@@ -27,6 +27,7 @@ a, a:hover, a:focus{
 }
 h1,h2,h3,h4,h5,h6{
 	font-weight: bold;
+	font-family: 'Kameron', Georgia, serif;
 	&.page-title{
 		color: #9CDBF3;
 		font-size: 44px;
@@ -42,10 +43,39 @@ strong, b{
 .input-prepend .add-on{
 	vertical-align: bottom;
 }
+p{
+	font-family:'Kameron', Georgia, serif;
+	line-height: 10px;
+	padding: 10px;
+	margin: 10px;
+}
+p.small{
+	font-size: 12px;
+	color: #666;
+	line-height: 10px;
+	padding: 12px;
+	margin: 12px;
+}
+p.medio{
+	font-size: 14px;
+	color: #666;
+	line-height: 15px;
+	padding: 15px;
+	margin: 15px;
+}
+p.big{
+	font-size: 20px;
+	color: #666;
+	line-height: 20px;
+	padding: 20px;
+	margin: 20px;
+}
+
 
 body{
 	padding-top: 81px;
 	background: $white;
+	font-family: 'Kameron', Georgia, serif;
 }
 #header{
 	background: $blue;
@@ -311,7 +341,7 @@ a#logo{
 		max-height: 400px;
 	}
 	.about{
-		width: 400px;
+		width: 500px;
 		padding: 0px 20px;
 		h2{
 			font-size: 30px;
