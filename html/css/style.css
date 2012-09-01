@@ -29,10 +29,14 @@ body{
 	top: 0px;
 	width: 100%;
 }
-#logo{
-	display: inline-block;
-	background: black;
+#header a{
 	height: 90px;
+	line-height: 90px;
+	background: blue;
+	display: inline-block;
+}
+a#logo{
+	background: black;
 	width: 200px;
 	float: left;
 }
@@ -41,10 +45,4 @@ body{
 }
 #header li{
 	display: inline;
-}
-#header ul{
-	float: left;
-}
-#header ul.share{
-	float: right;
 }
