@@ -24,11 +24,11 @@ html
           nav.pull-left
             ul
               li
-                a#header-discover href="#"
+                = link_to projects_path, id: "header-discover" do
                   | Discover
                   span great projects
               li
-                a#header-start href="#"
+                = link_to new_project_path, id: "header-start" do
                   | Start
                   span your project
           .pull-right
