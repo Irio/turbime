@@ -16,8 +16,9 @@ class Project < ActiveRecord::Base
   has_vimeo_video :video, :message => I18n.t('activerecord.errors.models.project.attributes.vimeo_regex_validation')
 
   # Scopes
-  scope :visible, where(visible: true)
-  scope :expired, where("expires_at < current_timestamp")
+  scope :visible, where(visible: true).order("created_at DESC")
+  scope :expired, where("expires_at < current_timestamp").order("created_at DESC")
+  scope :active, lambda { visible - expired }
 
   auto_html_for :description do
     html_escape
