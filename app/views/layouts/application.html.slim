@@ -39,6 +39,7 @@ html
                 a href="http://twitter.com/turbime" Twitter
               - if user_signed_in?
                 li
+                  = link_to "PROFILE", edit_user_registration_path
                   = link_to "SAIR", "/"
               - else
                 li
