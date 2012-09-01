@@ -1,19 +1,20 @@
 - content_for(:title) do
   - "SIGN IN"
-.sign_box.sign_in_box
-  h2.page-title = t(".sign_in")
-  br/
-  = render "devise/shared/social_links"
-  = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-    .form-inputs.modal-body
-      = f.input :email, :required => false, :autofocus => true, :wrapper => :prepend do
-        = content_tag :span, content_tag(:i, "", :class => 'icon-envelope'), :class => "add-on"
-        = f.input_field :email
+.center
+  .sign_box.sign_in_box
+    h2.page-title = t(".sign_in")
+    br/
+    = render "devise/shared/social_links"
+    = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      .form-inputs.modal-body
+        = f.input :email, :required => false, :autofocus => true, :wrapper => :prepend do
+          = content_tag :span, content_tag(:i, "", :class => 'icon-envelope'), :class => "add-on"
+          = f.input_field :email
 
-      = f.input :password, :required => false, :wrapper => :prepend do
-        = content_tag :span, content_tag(:i, "", :class => 'icon-lock'), :class => "add-on"
-        = f.input_field :password
+        = f.input :password, :required => false, :wrapper => :prepend do
+          = content_tag :span, content_tag(:i, "", :class => 'icon-lock'), :class => "add-on"
+          = f.input_field :password
 
-      = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
-      = f.button :submit, t(".sign_in"), class: "btn-primary"
-    = render "devise/shared/links"
+        = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
+        = f.button :submit, t(".sign_in"), class: "btn-primary"
+      = render "devise/shared/links"

@@ -159,10 +159,19 @@ a#logo{
 #footer .pull-right li{
 	display: inline;
 }
-#home_steps{
-  margin: 0 0 44px -9px;
+.home-intro{
+	background: url("black_bg.png");
+	padding: 10px 0px;
+	> .pull-left{
+		
+	}
+	> .pull-right{
+		
+	}
 }
-
+#home_steps{
+	margin: 0 0 44px -9px;
+}
 #home_steps ul{
 	list-style-type: none;
 	margin: 0px;
