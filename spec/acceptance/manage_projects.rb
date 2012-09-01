@@ -25,6 +25,7 @@ feature "Managing projects" do
     fill_in "Code funded", with: "https://github.com/Irio/mymoip/tree/v0.1.0"
     fill_in "Goal", with: "10.00"
     select_date (Date.current + 2.weeks), from: "project_expires_at"
+    click_on "Create project"
 
     page.should have_content("Your project will be approved by our team.")
   end
@@ -39,8 +40,8 @@ feature "Managing projects" do
   end
 
   scenario "Users other than project's owner cannot edit a project" do
-    user = auth_user
     subject = Project.make!
+    user = auth_user
     visit "/"
     click_on subject.name
     page.should_not have_content("Edit")
@@ -53,5 +54,13 @@ feature "Managing projects" do
     subject = Project.make!
     visit edit_project_path(subject)
     page.should have_content("Sign in")
+
+    # TODO: Rescue CanCan expections
+  end
+
+  scenario "Index must not show invisible projects" do
+    Project.make! visible: false, name: "You are not viewing this."
+    visit "/"
+    page.should_not have_content("You are not viewing this.")
   end
 end

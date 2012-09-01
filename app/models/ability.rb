@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can :update, Project, :user_id => user.id
+    can :update, Project, :user_id => user.id unless user.nil?
 
     # Define abilities for the passed in user here. For example:
     #

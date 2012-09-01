@@ -5,6 +5,15 @@ class ProjectsController < InheritedResources::Base
   before_filter :authenticate_user!, except: [:index]
   before_filter :assign_user_id, only: [:create]
 
+  def index
+    @projects = Project.active
+    index!
+  end
+
+  def create
+    create!(warning: "Your project will be approved by our team.")
+  end
+
   def update
     unless params[:project].nil?
       params[:project].reject! { |attr| @project.cannot_edit?(attr) }
