@@ -2,7 +2,7 @@ section
   .center
     h1.page-title
       = @project.name
-    = link_to t('edit'), edit_project_path(@project)
+      = link_to t('.edit'), edit_project_path(@project)
     .clear
     .user-info
       .pull-left.photo
@@ -14,5 +14,5 @@ section
   				.hide-ended#pledge-wrap
   				  = link_to "#", class: "button roundsmall", id: "button-back-this-proj", title: "Back This Project" do
   				    | DONATE
-  				    small MÍNIMO DE 10 DÓLARES
+  				    small 10 USD MINIMAL INVESTMENT
       .clear

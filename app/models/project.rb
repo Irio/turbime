@@ -29,6 +29,10 @@ class Project < ActiveRecord::Base
     simple_format
   end
 
+
+  def cannot_edit?(attr)
+    (attr.to_sym != :code_funded) && persisted?
+  end
   protected
   def store_image_url
     self.image = vimeo.thumbnail unless self.image

@@ -107,4 +107,52 @@ describe Project do
       end
     end
   end
+
+
+  describe "#cannot_edit?" do
+    let(:persisted) { Project.make! }
+
+    it "allows edit any attribute when unpersisted" do
+      subject.cannot_edit?(:name).should be_false
+      subject.cannot_edit?(:description).should be_false
+      subject.cannot_edit?(:expires_at).should be_false
+      subject.cannot_edit?(:headline).should be_false
+      subject.cannot_edit?(:video).should be_false
+      subject.cannot_edit?(:repository).should be_false
+      subject.cannot_edit?(:code_funded).should be_false
+      subject.cannot_edit?(:goal).should be_false
+    end
+
+    it "cannot edit name when persisted" do
+      persisted.cannot_edit?(:name).should be_true
+    end
+
+    it "cannot edit description when persisted" do
+      persisted.cannot_edit?(:description).should be_true
+    end
+
+    it "cannot edit expires_at when persisted" do
+      persisted.cannot_edit?(:expires_at).should be_true
+    end
+
+    it "cannot edit headline when persisted" do
+      persisted.cannot_edit?(:headline).should be_true
+    end
+
+    it "cannot edit video when persisted" do
+      persisted.cannot_edit?(:video).should be_true
+    end
+
+    it "cannot edit repository when persisted" do
+      persisted.cannot_edit?(:repository).should be_true
+    end
+
+    it "can edit code_funded when persisted" do
+      persisted.cannot_edit?(:code_funded).should be_false
+    end
+
+    it "cannot edit goal when persisted" do
+      persisted.cannot_edit?(:goal).should be_true
+    end
+  end
 end
