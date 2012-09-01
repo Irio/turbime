@@ -1,0 +1,103 @@
+a{
+	text-decoration: none;
+}
+.center{
+	width: 940px;
+	margin: 0px auto;
+}
+.clear{
+	clear: both;
+}
+.pull-left{
+	float: left;
+}
+.pull-right{
+	float: right;
+}
+h1,h2,h3,h4,h5,h6{
+	font-weight: bold;
+}
+.btn{
+	background: #20C1EE;
+}
+
+body{
+	padding-top: 81px;
+	background: #FFF;
+}
+#header{
+	background: #20C1EE;
+	height: 80px;
+	border-bottom: 1px solid #FFF;
+	line-height: 80px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+}
+#header a{
+	height: 80px;
+	line-height: 80px;
+	color: #FFF;
+	display: inline-block;
+}
+a#logo{
+	background: url("../images/logo.png") no-repeat center center;
+	width: 170px;
+	float: left;
+}
+#logo h1{
+	visibility: hidden;
+}
+#header .menu{
+	min-width: 670px;
+}
+#header .menu > .pull-right{
+	background: #4FD8FF;
+}
+#header li{
+	display: inline;
+}
+#header nav a{
+	line-height: 22px;
+	font-weight: bold;
+	text-align: center;
+	height: 50px;
+	padding: 15px 10px 15px 50px;
+}
+#header nav a:hover{
+	background-color: #000;
+}
+#header nav a span{
+	display: block;
+	line-height: 16px;
+	font-weight: normal;
+}
+#header-discover, #header-start{
+	background-repeat: no-repeat;
+	background-position: 10px center;
+}
+#header-discover{
+	background-image: url("../images/discover.png");
+}
+#header-start{
+	background-image: url("../images/discover.png");
+}
+.box-list .box img{
+	display: block;
+	max-width: 300px;
+}
+.box-list .box{
+	background: #EEE;
+	width: 300px;
+	float: left;
+}
+.box-list .box.centered{
+	margin: 0px 20px;
+}
+.box-list .box .link{
+	text-align: center;
+	margin: 0px;
+}
+#footer .pull-right li{
+	display: inline;
+}

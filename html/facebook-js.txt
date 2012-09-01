@@ -1,0 +1,29 @@
+No geral
+--------------------
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=359832334092122";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+--------------------
+
+
+Caixa de comentários
+--------------------
+<div class="fb-comments" data-href="http://example.com" data-num-posts="5" data-width="600"></div>
+--------------------
+
+
+Contador do lado
+--------------------
+<div class="fb-like" data-href="http://example.com/" data-send="false" data-layout="button_count" data-width="140" data-show-faces="false"></div>
+--------------------
+
+
+Contador em cima
+--------------------
+<div class="fb-like" data-href="http://example.com/" data-send="false" data-layout="box_count" data-width="75" data-show-faces="false"></div>
+--------------------
