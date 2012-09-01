@@ -6,11 +6,14 @@ class Project < ActiveRecord::Base
   # Validates
   validates :name, :headline, :description, :goal, :video, :user, :presence => true
   validates :repository, :video, format: {with: URI::regexp(%w[http https]), allow_nil: true, allow_blank: true}
+  before_create :store_image_url
+
   validates_each :expires_at do |record, attr, value|
     record.errors.add(attr,
-      I18n.t(".activerecord.errors.models.project.attributes.expires_at")
+      I18n.t("activerecord.errors.models.project.attributes.expires_at")
     ) if value && value < 1.week.from_now
   end
+  has_vimeo_video :video, :message => I18n.t('activerecord.errors.models.project.attributes.vimeo_regex_validation')
 
   # Scopes
   scope :visible, where(visible: true)
@@ -24,5 +27,10 @@ class Project < ActiveRecord::Base
     redcarpet
     link :target => "_blank"
     simple_format
+  end
+
+  protected
+  def store_image_url
+    self.image = vimeo.thumbnail unless self.image
   end
 end

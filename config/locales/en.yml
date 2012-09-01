@@ -35,3 +35,4 @@ en:
         project:
           attributes:
             expires_at: "must be 1 week in the future."
+            vimeo_regex_validation: "only Vimeo URLs are allowed"
