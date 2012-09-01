@@ -25,7 +25,7 @@ class Project < ActiveRecord::Base
     simple_format
   end
 
-  def can_edit?(attr)
-    attr == :code_funded || !persisted?
+  def cannot_edit?(attr)
+    (attr.to_sym != :code_funded) && persisted?
   end
 end

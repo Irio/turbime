@@ -13,7 +13,7 @@ describe ProjectsController do
 
   describe "GET 'new'" do
     describe "without sign in" do
-      it "shoult returns redirect to users sign in url" do
+      it "should returns redirect to users sign in url" do
         get :new
         response.should redirect_to(new_user_session_url)
       end
@@ -30,8 +30,9 @@ describe ProjectsController do
       end
     end
   end
+
   describe "GET 'edit'" do
-    describe "with signed in" do
+    describe "when signed in" do
       before do
         sign_in user
       end
