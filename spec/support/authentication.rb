@@ -26,4 +26,12 @@ module AuthenticationHelpers
        }
      )
   end
+
+  def sign_in_via(provider, attrs)
+    auth_omniauth(provider, name: attrs[:name], email: attrs[:email])
+
+    visit "/"
+    click_on "SIGN UP"
+    click_on "Sign in with Facebook"
+  end
 end
