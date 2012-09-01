@@ -1,0 +1,5 @@
+p
+  | #{t(".hello_email", email: @resource.email)}
+p = t(".your_account_has_been_locked")
+p = t(".click_the_link_below")
+p= link_to t(".unlock_my_account"), unlock_url(@resource, :unlock_token => @resource.unlock_token)
