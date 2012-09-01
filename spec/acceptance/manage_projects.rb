@@ -40,8 +40,8 @@ feature "Managing projects" do
   end
 
   scenario "Users other than project's owner cannot edit a project" do
-    user = auth_user
     subject = Project.make!
+    user = auth_user
     visit "/"
     click_on subject.name
     page.should_not have_content("Edit")
