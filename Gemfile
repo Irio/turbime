@@ -28,6 +28,7 @@ gem "slim-rails"
 # Tools
 gem 'simple_form'
 gem 'auto_html'
+gem 'has_vimeo_video'
 
 # Administration
 #gem 'activeadmin'

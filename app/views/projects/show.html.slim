@@ -5,15 +5,33 @@ section
       - if user_signed_in? && @project.user == current_user
         = link_to t('.edit'), edit_project_path(@project)
     .clear
-    .user-info
+    .user-info.project
       .pull-left.photo
-        img src="#{@project.name}" alt="#{@project.name}"
+        img src="/assets/logo.png" alt="#{@project.name}"
       .pull-left.about
-        h2 = @project.name
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        p
+          span.big = "10"
+          // @project.helpers ou algo parecido
+          |  backers
+        p
+          span.big.block = number_to_currency(100, country: :en)
+          span.block
+          |  pledged of 
+          = number_to_currency(100, country: :en)
+          |  goal
+        p
+          span.big.block
+            = days_left @project
+          span.block
+            = t('days_to_go')
         .donate-button
   				.hide-ended#pledge-wrap
   				  = link_to "#", class: "button roundsmall", id: "button-back-this-proj", title: "Back This Project" do
   				    | DONATE
   				    small 10 USD MINIMAL INVESTMENT
       .clear
+    .share-social
+      .fb-like data-href="#{request.url.html_safe}" data-send="false" data-layout="button_count" data-width="140" data-show-faces="false" style="vertical-align:top;min-width:100px"
+      = link_to "Tweet", "https://twitter.com/share", class: "twitter-share-button", :"data-url" => "#{request.url.html_safe}", :"data-text" => "Texto que vai ser usado", :"data-via" => "turbime", :"data-lang" => "pt", :"data-count" => "horizontal"
+      .g-plusone data-size="medium" data-href="#{request.url}}"
+      
