@@ -12,4 +12,18 @@ module AuthenticationHelpers
     click_on "Sign in"
     user
   end
+
+  def auth_omniauth(provider, user_info = {})
+    user_info = { name: "Juquinha da Rocha", email: "juquinha@turbi.me" }.merge(user_info)
+
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[provider] = OmniAuth::AuthHash.new(
+       :provider => provider,
+       :uid => '123123',
+       :info => {
+         :name => user_info[:name],
+         :email => user_info[:email]
+       }
+     )
+  end
 end

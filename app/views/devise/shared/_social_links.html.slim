@@ -2,4 +2,3 @@
   - resource_class.omniauth_providers.each do |provider|
     = link_to t(".sign_in_with", provider: provider.to_s.titleize), omniauth_authorize_path(resource_name, provider), :class =>"#{provider} login-btn provider"
     br/
-
