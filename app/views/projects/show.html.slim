@@ -2,7 +2,7 @@ section
   .center
     h1.page-title
       = @project.name
-      = link_to t('edit'), edit_project_path(@project)
+      = link_to t('.edit'), edit_project_path(@project)
     .user-info
       .pull-left.photo
         img src="#{@project.name}" alt="#{@project.name}"

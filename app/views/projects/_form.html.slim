@@ -1,12 +1,12 @@
 = simple_form_for(@project) do |f|
   .form-inputs.modal-body
-    = f.input :name, required: true, autofocus: true, input_html: {class: "span9"}
-    = f.input :description, required: true, input_html: {class: "span9"}
-    = f.input :expires_at, required: true, input_html: {style: "width: auto"}
-    = f.input :headline, required: true, input_html: {class: "span9"}
-    = f.input :video, required: true, input_html: {class: "span9"}
-    = f.input :repository, required: true, as: :url, input_html: {class: "span9"}
-    = f.input :code_funded, as: :url, input_html: {class: "span9"}
-    = f.input :goal, required: true, input_html: {class: "span9", min: 10}
+    = f.input :name, required: true, autofocus: true, input_html: {class: "span9"}, readonly: @project.can_edit?(:name)
+    = f.input :description, required: true, input_html: {class: "span9"}, readonly: @project.can_edit?(:description)
+    = f.input :expires_at, required: true, input_html: {style: "width: auto"}, readonly: @project.can_edit?(:expires_at)
+    = f.input :headline, required: true, input_html: {class: "span9"}, readonly: @project.can_edit?(:headline)
+    = f.input :video, required: true, input_html: {class: "span9"}, readonly: @project.can_edit?(:video)
+    = f.input :repository, required: true, as: :url, input_html: {class: "span9"}, readonly: @project.can_edit?(:repository)
+    = f.input :code_funded, as: :url, input_html: {class: "span9"}, readonly: @project.can_edit?(:code_funded)
+    = f.input :goal, required: true, input_html: {class: "span9", min: 10}, readonly: @project.can_edit?(:goal)
 
   = f.button :submit, t("project.submit.create"), class: "btn-primary"

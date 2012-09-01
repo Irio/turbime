@@ -35,7 +35,7 @@ feature "Managing projects" do
     visit "/"
     click_on subject.name
     click_on "Edit"
-    page.should_not have_content("You are not allowed to do this.")
+    page.should_not have_content("You are not authorized to access this page.")
   end
 
   scenario "Users other than project's owner cannot edit a project" do
@@ -46,7 +46,7 @@ feature "Managing projects" do
     page.should_not have_content("Edit")
 
     visit edit_project_path(subject)
-    page.should have_content("You are not allowed to do this.")
+    page.should have_content("You are not authorized to access this page.")
   end
 
   scenario "Guests cannot edit projects" do

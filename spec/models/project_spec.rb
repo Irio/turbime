@@ -87,4 +87,53 @@ describe Project do
       project.description_html.should == "<p><p>A <em>simple</em> description of <em>project</em> <a href=\"http://turbi.me\" target=\"_blank\">http://turbi.me</a></p>\n</p>"
     end
   end
+
+  describe "#can_edit?" do
+    let(:persisted) { Project.make! }
+
+    it "allows edit any attribute when unpersisted" do
+      subject.can_edit?(:name).should be_true
+      subject.can_edit?(:description).should be_true
+      subject.can_edit?(:expires_at).should be_true
+      subject.can_edit?(:headline).should be_true
+      subject.can_edit?(:video).should be_true
+      subject.can_edit?(:repository).should be_true
+      subject.can_edit?(:code_funded).should be_true
+      subject.can_edit?(:goal).should be_true
+    end
+
+    it "cannot edit name when persisted" do
+      persisted.can_edit?(:name).should be_false
+    end
+
+    it "cannot edit description when persisted" do
+      persisted.can_edit?(:description).should be_false
+    end
+
+    it "cannot edit expires_at when persisted" do
+      persisted.can_edit?(:expires_at).should be_false
+    end
+
+    it "cannot edit headline when persisted" do
+      persisted.can_edit?(:headline).should be_false
+    end
+
+    it "cannot edit video when persisted" do
+      persisted.can_edit?(:video).should be_false
+    end
+
+    it "cannot edit repository when persisted" do
+      persisted.can_edit?(:repository).should be_false
+    end
+
+    it "can edit code_funded when persisted" do
+      persisted.can_edit?(:code_funded).should be_true
+    end
+
+
+    it "cannot edit goal when persisted" do
+      persisted.can_edit?(:goal).should be_false
+    end
+
+  end
 end

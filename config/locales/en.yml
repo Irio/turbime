@@ -14,12 +14,14 @@ en:
   sign_in: Login
   sign_up: Sign up
   sign_out: Logout
-  project:
+  projects:
     submit:
       create: Create project
       update: Update project
     new:
       new_project: "New project"
+    show:
+      edit: "Edit"
   activerecord:
     errors:
       models:
