@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :authorizations, dependent: :destroy
 
   validates :name, presence: true
-  validates :github, :twitter, :facebook, :site, format: { with: URI::regexp(%w(http https)) }, allow_nil: true
+  validates :github, :twitter, :facebook, :site, format: { with: URI::regexp(%w(http https)) }, allow_nil: true, allow_blank: true
 
   def self.new_with_session(params, session)
     super.tap do |user|

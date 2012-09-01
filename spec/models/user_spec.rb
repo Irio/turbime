@@ -74,7 +74,6 @@ describe User do
     subject { User.make!(email: "url@turbi.me") }
     let(:url_with_http) { "http://www.turbi.me/" }
     let(:url_without_http) { "www.turbi.me" }
-    let(:invalid_url) { "turbi.me" }
 
     it "accepts urls with http" do
       subject.github = url_with_http
@@ -92,17 +91,6 @@ describe User do
       subject.twitter = url_without_http
       subject.facebook = url_without_http
       subject.site = url_without_http
-      should have_at_least(1).error_on(:github)
-      should have_at_least(1).error_on(:twitter)
-      should have_at_least(1).error_on(:facebook)
-      should have_at_least(1).error_on(:site)
-    end
-
-    it "dont accepts urls without http and www" do
-      subject.github = invalid_url
-      subject.twitter = invalid_url
-      subject.facebook = invalid_url
-      subject.site = invalid_url
       should have_at_least(1).error_on(:github)
       should have_at_least(1).error_on(:twitter)
       should have_at_least(1).error_on(:facebook)
