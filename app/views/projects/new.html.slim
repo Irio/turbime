@@ -1,1 +1,13 @@
-| projects#new
+.center.new_project
+  = simple_form_for(@project) do |f|
+    .form-inputs.modal-body
+      = f.input :name, required: true, autofocus: true, input_html: {class: "span9"}
+      = f.input :description, required: true, as: :text, input_html: {class: "span9"}
+      = f.input :expires_at, required: true, as: :datetime, format: 'pt-BR', input_html: {style: "width: auto"}
+      = f.input :headline, required: true, input_html: {class: "span9"}
+      = f.input :video, required: true, order: [:day, :month, :year], input_html: {class: "span9"}
+      = f.input :repository, required: true, input_html: {class: "span9"}
+      = f.input :code_funded, input_html: {class: "span9"}
+      = f.input :goal, required: true, as: :float, input_html: {class: "span9", min: 10}
+
+    = f.button :submit, t("project.submit.create"), class: "btn-primary"
