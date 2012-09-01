@@ -233,3 +233,5 @@ Devise.setup do |config|
   config.omniauth :twitter, 'l3VzQrRIFsR3bR7dDs1POw', 'ipBCLA1MkCY0PFdn9ZFxdQPtHhDIGXDolXYOH9cM'
 
 end
+
+OmniAuth.config.full_host = "http://199.231.86.14/"
