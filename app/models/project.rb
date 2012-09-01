@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
   belongs_to :user
+  has_many :supports
   attr_accessible :headline, :code_funded, :description, :expires_at, :goal, :name, :repository, :video, :visible, :user_id
 
   # Validates
@@ -23,5 +24,9 @@ class Project < ActiveRecord::Base
     redcarpet
     link :target => "_blank"
     simple_format
+  end
+
+  def cannot_edit?(attr)
+    (attr.to_sym != :code_funded) && persisted?
   end
 end

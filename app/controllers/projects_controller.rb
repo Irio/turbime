@@ -3,10 +3,17 @@ class ProjectsController < InheritedResources::Base
   load_and_authorize_resource only: [:edit, :update]
 
   before_filter :authenticate_user!, except: [:index]
-  before_filter :fix_user_id, only: [:create]
+  before_filter :assign_user_id, only: [:create]
+
+  def update
+    unless params[:project].nil?
+      params[:project].reject! { |attr| @project.cannot_edit?(attr) }
+    end
+    update!
+  end
 
   protected
-  def fix_user_id
+  def assign_user_id
     params[:project][:user_id] = current_user.id if params[:project]
   end
 end
