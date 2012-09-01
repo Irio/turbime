@@ -248,6 +248,18 @@ a#logo{
 		}
 	}
 }
+.new_project{
+	.modal-body{
+		padding: 0px;
+		margin: 0px auto;
+		max-height: none;
+		overflow: auto;
+		label{
+			color: $gray;
+			margin-bottom: 8px;
+		}
+	}
+}
 .sign_box{
 	.modal-body{
 		padding: 0px;
@@ -294,4 +306,21 @@ a#logo{
 .user-info{
 	background: #EEE;
 	color: #555;
+	.pull-left.photo, .pull-left.photo img{
+		width: 400px;
+		max-height: 400px;
+	}
+	.about{
+		width: 400px;
+		padding: 0px 20px;
+		h2{
+			font-size: 30px;
+			margin: 30px 0px 10px 0px;
+		}
+		p{
+			font-size: 17px;
+			color: darken($gray, 30%);
+			line-height: 20px;
+		}
+	}
 }
