@@ -51,6 +51,4 @@ after  'deploy',         'deploy:cleanup'
 
 require "rvm/capistrano"
 require "bundler/capistrano"
-require "capistrano-unicorn"
-require "capistrano-file_db"
 load 'deploy/assets'
