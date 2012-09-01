@@ -27,7 +27,7 @@ gem "slim-rails"
 
 # Tools
 gem 'simple_form'
-#gem 'auto_html'
+gem 'auto_html'
 
 # Administration
 #gem 'activeadmin'
