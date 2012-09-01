@@ -40,7 +40,7 @@ html
               - if user_signed_in?
                 li
                   = link_to "PROFILE", edit_user_registration_path
-                  = link_to "SAIR", "/"
+                  = link_to "SIGN OUT", destroy_user_session_path, method: :delete
               - else
                 li
                   = link_to "SIGN UP", new_user_registration_path
