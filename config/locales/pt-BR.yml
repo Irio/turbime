@@ -11,6 +11,7 @@ pt-BR:
       four: 'É desenvolvida a funcionalidade'
       five: 'Você libera o código como open-source'
   days: Dias
+  days_to_go: Dias restantes
   remaining: Restantes
   reached: Atingido
   profile: Perfil
