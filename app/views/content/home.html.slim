@@ -1,2 +1,50 @@
 h1 Content#home
 p Find me in app/views/content/home.html.slim
+
+section.box-list
+  - @projects.each_with_index do |project,i|
+    .show class="#{i % 3 == 1 ? "box centered" : "box"}"
+      div
+        = link_to "project_path project" do
+          - a = percent project
+          img src="" alt=""
+          h2.project-title = project.name
+          p.description
+            = project.description
+          // p.link
+            // a.btn href="#" XXXX
+          .progress-text
+            span
+              strong
+                = days_left project
+                |  Dias
+              | RESTANTES
+            span
+              strong
+                = a
+                | %
+              | ATINGIDO
+          .progress.progress-success.progress-striped
+            .bar style="width: #{a}%"
+  .clear
+
+section.steps
+  #home_steps
+    ul
+      li.span3
+        span.title.span1
+          | 1
+          hr.vertical.right
+        span.span1 Escolha uma foto e escreva sua mensagem
+      li.span3
+        span.title.span1
+          hr.vertical.left 2
+          hr.span1.vertical.right
+        span.span1
+          Cuidamos da impressão e enviamos pelo correio
+      li.span3
+        span.title.span1
+          hr.vertical.left 3
+          hr.span1.vertical.right
+        span.span1 Quem você gosta recebe o postal e dá um enorme sorriso!
+    .clear
