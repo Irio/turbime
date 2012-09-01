@@ -1,10 +1,4 @@
-# RVM bootstrap
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-require 'rvm/capistrano'
 set :rvm_ruby_string, '1.9.2p320'
-
-# bundler bootstrap
-require 'bundler/capistrano'
 
 # main details
 set :application, "turbi"
@@ -20,9 +14,11 @@ set :deploy_via, :remote_cache
 set :user, "www-data"
 set :use_sudo, false
 
+
 # repo details
 set :scm, :git
 set :scm_username, "passenger"
+set :use_sudo, false
 set :repository, "git@codeplane.com:startupdevrumble/startup-ideias.git"
 set :branch, "master"
 set :git_enable_submodules, 1
@@ -42,3 +38,19 @@ namespace :deploy do
     run "touch #{current_path}/tmp/restart.txt"
   end
 end
+
+
+before 'deploy:restart', 'deploy:migrate'
+# Install RVM
+before 'deploy',         'rvm:install_rvm'
+# Install Ruby
+before 'deploy',         'rvm:install_ruby'
+# Or create gemset
+#before 'deploy',         'rvm:create_gemset'
+after  'deploy',         'deploy:cleanup'
+
+require "rvm/capistrano"
+require "bundler/capistrano"
+require "capistrano-unicorn"
+require "capistrano-file_db"
+load 'deploy/assets'
