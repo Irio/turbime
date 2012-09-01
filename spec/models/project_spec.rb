@@ -17,14 +17,12 @@ describe Project do
       it "accepts urls with http" do
         subject.video = url_with_http
         subject.repository = url_with_http
-        should have(0).error_on(:video)
         should have(0).error_on(:repository)
       end
 
       it "dont accepts urls without http" do
         subject.video = url_without_http
         subject.repository = url_without_http
-        should have_at_least(1).error_on(:video)
         should have_at_least(1).error_on(:repository)
       end
     end
@@ -89,6 +87,27 @@ describe Project do
       project.description_html.should == "<p><p>A <em>simple</em> description of <em>project</em> <a href=\"http://turbi.me\" target=\"_blank\">http://turbi.me</a></p>\n</p>"
     end
   end
+
+  describe "#video" do
+    let(:user) { User.make! }
+    let(:project) { Project.make! user: user, video: "http://vimeo.com/28220980" }
+
+    describe "vimeo" do
+      subject{ project }
+
+      its(:vimeo) do
+        subject.id.should == "28220980"
+        subject.embed_url.should == "http://player.vimeo.com/video/28220980"
+      end
+
+      it "should get vimeo image URL and store it" do
+        Project.any_instance.unstub(:store_image_url)
+        new_project = Project.make! user: user, video: "http://vimeo.com/28220980"
+        new_project.image.should == 'http://b.vimeocdn.com/ts/188/251/188251185_640.jpg'
+      end
+    end
+  end
+
 
   describe "#cannot_edit?" do
     let(:persisted) { Project.make! }
