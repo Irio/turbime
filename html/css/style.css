@@ -1,0 +1,41 @@
+a{
+	text-decoration: none;
+}
+.center{
+	width: 960px;
+	margin: 0px auto;
+}
+.clear{
+	clear: both;
+}
+
+body{
+	padding-top: 90px;
+}
+#header{
+	background: red;
+	height: 90px;
+	line-height: 90px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+}
+#logo{
+	display: inline-block;
+	background: black;
+	height: 90px;
+	width: 200px;
+	float: left;
+}
+#logo h1{
+	visibility: hidden;
+}
+#header li{
+	display: inline;
+}
+#header ul{
+	float: left;
+}
+#header ul.share{
+	float: right;
+}
