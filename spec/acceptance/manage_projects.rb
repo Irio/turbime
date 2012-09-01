@@ -26,7 +26,7 @@ feature "Managing projects" do
     subject = Project.make!
     visit "/"
     click_on subject.name
-    page.shoud_not have_content("Edit")
+    page.should_not have_content("Edit")
 
     visit edit_project_path(subject)
     page.should have_content("You are not allowed to do this.")
@@ -37,6 +37,4 @@ feature "Managing projects" do
     visit edit_project_path(subject)
     page.should have_content("Sign in")
   end
-
-  scenario "Users cannot delete projects"
 end
