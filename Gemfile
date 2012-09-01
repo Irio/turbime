@@ -32,6 +32,9 @@ gem 'simple_form'
 # Administration
 #gem 'activeadmin'
 
+# Authorizations
+gem "cancan"
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.2'
