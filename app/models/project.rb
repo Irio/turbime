@@ -1,9 +1,9 @@
 class Project < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :about, :code_funded, :description, :expires_at, :goal, :name, :repository, :video, :visible
+  attr_accessible :headline, :code_funded, :description, :expires_at, :goal, :name, :repository, :video, :visible, :user_id
 
   # Validates
-  validates :name, :headline, :description, :goal, :video, :presence => true
+  validates :name, :headline, :description, :goal, :video, :user, :presence => true
   validates :repository, :video, format: {with: URI::regexp(%w[http https]), allow_nil: true, allow_blank: true}
   validates_each :expires_at do |record, attr, value|
     record.errors.add(attr,
