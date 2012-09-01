@@ -1,0 +1,70 @@
+en:
+  devise:
+    registrations:
+      edit:
+        provider: "Provider"
+        connect_disconnect: "Connect/Disconect"
+        unhappy: "Unhappy?"
+        cancel_my_account: "Cancel my account"
+        edit_devise_resource: "Edit %{resource_name}"
+        connect_your_provider: "Connect your %{provider_name}"
+        disconnect_from_provider: "Disconnect from %{provider_name}"
+        back: "Back"
+        update: "Update"
+        are_you_sure: "Are you sure?"
+      new:
+        sign_up: "Sign Up"
+        sign_in: "Sign In"
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+    sessions:
+      new:
+        sign_in: "Sign in"
+    confirmations:
+      new:
+        resend_confirmation_instructions: "Resend confirmation instructions"
+    mailer:
+      confirmation_instructions:
+        welcome_email: "Welcome %{email}!"
+        you_can_confirm_your_account: "You can confirm your account email through the link below:"
+      reset_password_instructions:
+        if_you_didn_t_request_this: "If you didn't request this, please ignore this email."
+        your_password_wont_change: "Your password won't change until you access the link above and create a new one."
+        someone_has_requested_a_link_to_change_your_password: "Someone has requested a link to change your password, and you can do this through the link below."
+      unlock_instructions:
+        hello_email: "Hello %{email}!"
+        your_account_has_been_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+        click_the_link_below: "Click the link below to unlock your account:"
+    passwords:
+      edit:
+        change_your_password: "Change your password"
+        new_password: "New password"
+        confirm_your_new_password: "Confirm your new password"
+        change_my_password: "Change my password"
+      new:
+        forgot_your_password: "Forgot your password?"
+        send_me_reset_password_instructions: "Send me reset password instructions"
+
+    unlocks:
+      new:
+        resend_unlock_instructions: "Resend unlock instructions"
+    shared:
+      are_you_sure: "Are you sure?"
+      update: "Update"
+
+      social_links:
+        sign_in_with: "Sign in with %{provider}"
+      links:
+        sign_in: "Sign in"
+        sign_up: "Sign up"
+        reset_your_password: "Reset your password"
+        didn_t_receive_confirmation_instructions?: "Didn't receive confirmation instructions?"
+        didn_t_receive_unlock_instructions?: "Didn't receive unlock instructions?"
+        unlock_my_account: "Unlock my account"
+        confirm_my_account: "Confirm my account"
+        change_my_password: "Change my password"
+        or: " or "
+        back: "Back"
+
