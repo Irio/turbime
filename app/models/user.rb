@@ -3,9 +3,13 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  attr_accessible :name, :email, :password, :image_url, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :password, :image_url,
+    :password_confirmation, :remember_me, :github, :twitter, :facebook, :site
   has_many :authorizations, dependent: :destroy
+  has_many :projects
+
   validates :name, presence: true
+  validates :github, :twitter, :facebook, :site, format: { with: URI::regexp(%w(http https)) }, allow_nil: true
 
   def self.new_with_session(params, session)
     super.tap do |user|

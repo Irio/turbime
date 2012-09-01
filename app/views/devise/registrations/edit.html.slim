@@ -27,6 +27,18 @@ div.row
           = content_tag :span, content_tag(:i, "", :class => 'icon-lock'), :class => "add-on"
           = f.input_field :current_password, style: "width: 242px"
 
+        = f.input :github, :wrapper => :prepend do
+          = f.url_field :github, style: "width: 242px"
+
+        = f.input :twitter, :wrapper => :prepend do
+          = f.url_field :twitter, style: "width: 242px"
+
+        = f.input :facebook, :wrapper => :prepend do
+          = f.url_field :facebook, style: "width: 242px"
+
+        = f.input :site, :wrapper => :prepend do
+          = f.url_field :site, style: "width: 242px"
+
       = f.button :submit, t(".update"), class: "btn-primary", style: "width: 280px"
 
   .span6
