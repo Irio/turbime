@@ -18,26 +18,26 @@ html
   body data-controller-class=controller.class.name data-controller-name=controller.controller_name.camelize data-action=controller.action_name.camelize
     header#header
       .center
-        a href="/" id="logo"
+        a#logo href="/"
           h1 Turbi.me
         .pull-right.menu
           nav.pull-left
             ul
               li
-                a href="#" id="header-discover"
+                a#header-discover href="#"
                   | Discover
                   span great projects
               li
-                a href="#" id="header-start"
+                a#header-start href="#"
                   | Start
                   span your project
           .pull-right
             ul.share
               li
-                a.facebook href="#"
+                a.facebook href="#" target="_blank"
                   span Facebook
               li
-                a.twitter href="http://twitter.com/turbime"
+                a.twitter href="http://twitter.com/turbime" target="_blank"
                   span Twitter
               - if user_signed_in?
                 li
@@ -64,7 +64,7 @@ html
     footer#footer
       .center
         .pull-left
-          Footer
+          | Footer
         .pull-right
           ul
             li
