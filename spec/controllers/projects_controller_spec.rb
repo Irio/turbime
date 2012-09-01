@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe ContentController do
+describe ProjectsController do
 
-  describe "GET 'home'" do
+  describe "GET 'index'" do
     it "returns http success" do
-      get 'home'
+      get 'index'
       response.should be_success
     end
   end

@@ -1,5 +1,7 @@
 Turbi::Application.routes.draw do
-  root to: "content#home"
+  resources :projects, except: [:destroy]
+
+  root to: "projects#index"
 
   resources :authorizations, only: [:destroy]
 
