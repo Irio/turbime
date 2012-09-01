@@ -1,5 +1,5 @@
 Turbi::Application.routes.draw do
-  get "projects/index"
+  resources :projects, except: [:destroy]
 
   root to: "projects#index"
 

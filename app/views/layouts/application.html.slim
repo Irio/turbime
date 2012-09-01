@@ -24,11 +24,19 @@ html
           nav.pull-left
             ul
               li
+<<<<<<< Updated upstream
                 a#header-discover href="#"
                   | Discover
                   span great projects
               li
                 a#header-start href="#"
+=======
+                = link_to projects_path, id: "header-discover" do
+                  | Discover
+                  span great projects
+              li
+                = link_to new_project_path, id: "header-start" do
+>>>>>>> Stashed changes
                   | Start
                   span your project
           .pull-right
