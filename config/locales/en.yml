@@ -2,4 +2,11 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  home:
+    intro:
+      title: Fund & Features
+      pitch: Turbi.me is a funding plataform for features projects.
+    start_your_project: Start your project
+  days: Days
+  remaining: Remaining
+  reached: Reached

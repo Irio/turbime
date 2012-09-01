@@ -1,9 +1,9 @@
 section.home-intro
   .center
     .pull-left
-      h1 Fund & Features
-      p Turbi.me is a funding plataform for features projects.
-      = link_to t('.home.start_your_project'), "projects_path", class: "btn"
+      h1 = t('home.intro.title')
+      p = t('home.intro.pitch')
+      = link_to t('home.start_your_project'), "projects_path", class: "btn"
     .pull-right
       div style="background:red;width:460px;height:40px;"
     .clear
@@ -25,13 +25,13 @@ section.box-list
               span
                 strong
                   = days_left project
-                  |  Dias
-                | RESTANTES
+                  |  #{t('days')}
+                | #{t('remaining').upcase}
               span
                 strong
                   = a
                   | %
-                | ATINGIDO
+                | #{t('reached').upcase}
             .progress.progress-success.progress-striped
               .bar style="width: #{a}%"
     .clear
@@ -44,17 +44,17 @@ section.steps
           span.title.span1
             | 1
             hr.vertical.right
-          span.span1 Escolha uma foto e escreva sua mensagem
+          span.span1 Step 1
         li.span3
           span.title.span1
             hr.vertical.left 2
             hr.span1.vertical.right
           span.span1
-            | Cuidamos da impressão e enviamos pelo correio
+            | Step 2
         li.span3
           span.title.span1
             hr.vertical.left
             | 3
             hr.span1.vertical.right
-          span.span1 Quem você gosta recebe o postal e dá um enorme sorriso!
+          span.span1 Step 3
       .clear
