@@ -2,16 +2,16 @@ set :rvm_ruby_string, '1.9.2p320'
 
 # main details
 set :application, "turbi"
-role :web, "startup_ideias.webbynode.us"
-role :app, "startup_ideias.webbynode.us"
-role :db,  "startup_ideias.webbynode.us", :primary => true
+role :web, "199.231.86.14"
+role :app, "199.231.86.14"
+role :db,  "199.231.86.14", :primary => true
 
 # server details
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 set :deploy_to, "/var/www/turbi"
 set :deploy_via, :remote_cache
-set :user, "www-data"
+set :user, "root"
 set :use_sudo, false
 
 
@@ -41,12 +41,6 @@ end
 
 
 before 'deploy:restart', 'deploy:migrate'
-# Install RVM
-before 'deploy',         'rvm:install_rvm'
-# Install Ruby
-before 'deploy',         'rvm:install_ruby'
-# Or create gemset
-#before 'deploy',         'rvm:create_gemset'
 after  'deploy',         'deploy:cleanup'
 
 require "rvm/capistrano"
