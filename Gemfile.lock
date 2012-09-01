@@ -86,6 +86,9 @@ GEM
       activerecord (>= 3.0.0)
     fssm (0.2.9)
     has_scope (0.5.1)
+    has_vimeo_video (0.0.5)
+      supermodel
+      vimeo
     hashie (1.2.0)
     heroku (2.31.1)
       heroku-api (~> 0.3.4)
@@ -96,7 +99,11 @@ GEM
     heroku-api (0.3.4)
       excon (~> 0.16.1)
     hike (1.2.1)
+    httparty (0.8.3)
+      multi_json (~> 1.0)
+      multi_xml
     httpauth (0.1)
+    httpclient (2.2.7)
     i18n (0.6.1)
     inherited_resources (1.3.1)
       has_scope (~> 0.5.0)
@@ -127,6 +134,7 @@ GEM
     method_source (0.8)
     mime-types (1.19)
     multi_json (1.3.6)
+    multi_xml (0.5.1)
     multipart-post (1.1.5)
     netrc (0.7.7)
     nokogiri (1.5.5)
@@ -231,6 +239,8 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    supermodel (0.1.4)
+      activemodel (>= 3.0.0.beta)
     temple (0.4.0)
     therubyracer (0.10.2)
       libv8 (~> 3.3.10)
@@ -247,6 +257,12 @@ GEM
     uglifier (1.2.7)
       execjs (>= 0.3.0)
       multi_json (~> 1.3)
+    vimeo (1.5.3)
+      httparty (>= 0.4.5)
+      httpclient (>= 2.1.5.2)
+      json (>= 1.1.9)
+      multipart-post (>= 1.0.1)
+      oauth (>= 0.4.3)
     warden (1.2.1)
       rack (>= 1.0)
     xpath (0.1.4)
@@ -269,6 +285,7 @@ DEPENDENCIES
   execjs
   ffaker
   foreigner
+  has_vimeo_video
   heroku
   inherited_resources
   jasmine
