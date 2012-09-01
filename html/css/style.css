@@ -46,6 +46,18 @@ a#logo{
 #header li{
 	display: inline;
 }
+.box-list .box img{
+	display: block;
+	max-width: 300px;
+}
+.box-list .box{
+	background: red;
+	width: 300px;
+}
+.box-list .box .link{
+	text-align: center;
+	margin: 0px;
+}
 #footer .pull-right li{
 	display: inline;
 }
