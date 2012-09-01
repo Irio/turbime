@@ -25,6 +25,7 @@ feature "Managing projects" do
     fill_in "Code funded", with: "https://github.com/Irio/mymoip/tree/v0.1.0"
     fill_in "Goal", with: "10.00"
     select_date (Date.current + 2.weeks), from: "project_expires_at"
+    click_on "Create project"
 
     page.should have_content("Your project will be approved by our team.")
   end
