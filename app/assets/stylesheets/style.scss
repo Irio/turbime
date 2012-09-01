@@ -80,6 +80,23 @@ a#logo{
 		&:hover, &:focus{
 			background: $blue;
 		}
+		&.facebook, &.twitter{
+			background: url("ico-header-face.png") no-repeat center center;
+			&:hover, &:focus{
+				background-color: $blue;
+			}
+			span{
+				visibility: hidden;
+			}
+		}
+		&.facebook{
+			width: 10px;
+			background-image: url("ico-header-face.png");
+		}
+		&.twitter{
+			width: 10px;
+			background-image: url("ico-header-tw.png");
+		}
 	}
 }
 #header li{
@@ -159,15 +176,30 @@ a#logo{
 #footer .pull-right li{
 	display: inline;
 }
-#home_steps{
-  margin: 0 0 44px -9px;
+.home-intro{
+	background: url("black_bg.png");
+	min-height: 400px;
+	padding: 10px 0px;
+	> .center{
+		> .pull-left{
+			.btn{
+				font-size: 30px;
+				padding: 20px 30px;
+			}
+		}
+		> .pull-right{
+		
+		}
+	}
 }
-
+#home_steps{
+	margin: 0 0 44px -9px;
+}
 #home_steps ul{
 	list-style-type: none;
 	margin: 0px;
 	li {
-		height: 80px;
+		height: 140px;
 		width: 300px;
 		span{
 			font-size: 24px;
@@ -176,7 +208,7 @@ a#logo{
 			&.span1.title{
 				font-size: 106px;
 				position: relative;
-				width: 95px;
+				width: 80px;
 				text-align: center;
 				margin: 0;
 				top: 54px;
@@ -243,9 +275,9 @@ a#logo{
 	@include radius(4px);
 	color: $white;
 	&.facebook{
-		background: #496499 url("redes.png") no-repeat 20px center;
+		background: #496499 url("redes-cta.png") no-repeat 18px 10px;
 	}
 	&.twitter{
-		background: #2BA1CC url("redes.png") no-repeat -20px center;
+		background: #2BA1CC url("redes-cta.png") no-repeat 15px -62px;
 	}
 }

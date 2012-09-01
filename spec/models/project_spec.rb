@@ -32,4 +32,29 @@ describe Project do
   describe "associations" do
     it { should belong_to :user }
   end
+
+  describe "scopes" do
+    describe "visible" do
+      before do
+        user = User.make!
+        Project.make! visible: true, user: user
+        Project.make! visible: true, user: user
+        Project.make! visible: false, user: user
+      end
+      it "should return only visible projects" do
+        Project.visible.should have(2).items
+      end
+    end
+
+    describe "expired" do
+      before do
+        user = User.make!
+        Project.make! expires_at: 1.month.from_now, user: user
+        Project.make! expires_at: -1.month.from_now, user: user
+      end
+      it "should return only expired projects" do
+        Project.expired.should have(1).items
+      end
+    end
+  end
 end

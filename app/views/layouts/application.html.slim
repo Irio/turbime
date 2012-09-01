@@ -18,25 +18,27 @@ html
   body data-controller-class=controller.class.name data-controller-name=controller.controller_name.camelize data-action=controller.action_name.camelize
     header#header
       .center
-        a href="/" id="logo"
+        a#logo href="/"
           h1 Turbi.me
         .pull-right.menu
           nav.pull-left
             ul
               li
-                a href="#" id="header-discover"
+                a#header-discover href="#"
                   | Discover
                   span great projects
               li
-                a href="#" id="header-start"
+                a#header-start href="#"
                   | Start
                   span your project
           .pull-right
             ul.share
               li
-                a href="#" Facebook
+                a.facebook href="#" target="_blank"
+                  span Facebook
               li
-                a href="http://twitter.com/turbime" Twitter
+                a.twitter href="http://twitter.com/turbime" target="_blank"
+                  span Twitter
               - if user_signed_in?
                 li
                   = link_to "PROFILE", edit_user_registration_path
@@ -57,12 +59,12 @@ html
           .notice = flash[:notice]
         - unless flash[:warning].nil?
           .warning = flash[:warning]
-        = yield
+      = yield
 
     footer#footer
       .center
         .pull-left
-          Footer
+          | Footer
         .pull-right
           ul
             li

@@ -24,4 +24,5 @@ Project.blueprint do
   goal {1000}
   expires_at {1.month.from_now}
   video {"http://vimeo.com/28220980"}
+  visible {true}
 end
