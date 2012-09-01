@@ -1,17 +1,67 @@
 doctype html
 html
   head
-    title turbi
-    = stylesheet_link_tag "application"
+    /[ if lt IE 9 ]
+      = javascript_include_tag "//html5shim.googlecode.com/svn/trunk/html5.js"
     meta[charset="utf-8"]
+    meta[http-equiv="Content-Type" content="text/html;charset=utf-8"]
+    title
+      = content_for?(:title) ? "#{yield(:title)} Turbi.me" : "Turbi.me"
+    = stylesheet_link_tag "application"
     meta[name="description" content=""]
     meta[name="keywords" content=""]
     meta[name="author" content=""]
     = yield(:meta_tags)
     = csrf_meta_tag
     = javascript_include_tag "application"
+
   body data-controller-class=controller.class.name data-controller-name=controller.controller_name.camelize data-action=controller.action_name.camelize
-    header
-    = flash_messages
-    = yield
-    footer
+    header#header
+      .center
+        a href="/" id="logo"
+          h1 Turbi.me
+        .pull-right.menu
+          nav.pull-left
+            ul
+              li
+                a href="#" id="header-discover"
+                  | Discover
+                  span great projects
+              li
+                a href="#" id="header-start"
+                  | Start
+                  span your project
+          .pull-right
+            ul.share
+              li
+                a href="#" Facebook
+              li
+                a href="http://twitter.com/turbime" Twitter
+              - if user_signed_in?
+                li
+                  = link_to "SAIR", "/"
+              - else
+                li
+                  = link_to "SIGN UP", new_user_registration_path
+                li
+                  = link_to "LOGIN", new_user_session_path
+        .clear
+      .clear
+
+    section#content
+      .center
+        = flash_messages
+        = yield
+
+    footer#footer
+      .center
+        .pull-left
+          Footer
+        .pull-right
+          ul
+            li
+              a href="#" target="_blank" Facebook
+            li
+              a href="#" target="_blank" Twitter
+          a href="#" id="footer-logo" STARTUPIDEIAS
+          .clear
