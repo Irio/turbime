@@ -47,6 +47,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.5)
       ffi (~> 1.0, >= 1.0.6)
+    chronic (0.7.0)
     chunky_png (1.2.6)
     coderay (1.0.7)
     coffee-rails (3.2.2)
@@ -64,6 +65,8 @@ GEM
       compass (>= 0.12.2, < 0.14)
     daemons (1.1.9)
     database_cleaner (0.8.0)
+    delorean (2.0.0)
+      chronic
     devise (2.1.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -261,6 +264,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.2)
   compass-rails (~> 1.0.3)
   database_cleaner
+  delorean
   devise (~> 2.1.2)
   execjs
   ffaker

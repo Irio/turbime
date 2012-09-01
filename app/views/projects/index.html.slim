@@ -13,7 +13,7 @@ section.box-list
     - @projects.each_with_index do |project,i|
       .show class="#{i % 3 == 1 ? "box centered" : "box"}"
         div
-          = link_to "project_path project" do
+          = link_to project_path(project) do
             - a = percent project
             img src="" alt=""
             h2.project-title = project.name
