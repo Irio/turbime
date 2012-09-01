@@ -1,0 +1,3 @@
+pelo que eu pensei e testei, isso resolve
+
+\Ahttps?:\/\/[\w\.]*\w+\.\w{2,4}(\.\w{2,4})?((\/[\.\w\/]+)*)|\/|(#[!\/\.\w]*)\z
