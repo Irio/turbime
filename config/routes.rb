@@ -1,4 +1,6 @@
 Turbi::Application.routes.draw do
+  root to: "content#home"
+
   resources :authorizations, only: [:destroy]
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
