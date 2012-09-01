@@ -15,3 +15,9 @@ en:
       submit: "Save"
     new:
       new_project: "New project"
+  activerecord:
+    errors:
+      models:
+        project:
+          attributes:
+            expires_at: "must be 1 week in the future."
