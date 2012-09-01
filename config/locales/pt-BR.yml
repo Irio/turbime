@@ -4,6 +4,12 @@ pt-BR:
       title: Fund & Features
       pitch: Turbi.me is a funding plataform for features projects.
     start_your_project: Comece seu projeto
+    steps:
+      one: 'Você tem uma ideia de funcionalidade para seu software'
+      two: 'Você cadastra no Turbi'
+      three: 'Pessoas interessadas em usar a funcionalidade pagam por ela.'
+      four: 'É desenvolvida a funcionalidade'
+      five: 'Você libera o código como open-source'
   days: Dias
   remaining: Restantes
   reached: Atingido
@@ -11,6 +17,9 @@ pt-BR:
   sign_in: Login
   sign_up: Cadastro
   sign_out: Sair
+  projects:
+    new:
+      new_project: Novo projeto
   project:
     submit:
       create: Criar projeto

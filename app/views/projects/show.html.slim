@@ -3,10 +3,16 @@ section
     h1.page-title
       = @project.name
       = link_to t('.edit'), edit_project_path(@project)
+    .clear
     .user-info
       .pull-left.photo
         img src="#{@project.name}" alt="#{@project.name}"
       .pull-left.about
         h2 = @project.name
         p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        .donate-button
+  				.hide-ended#pledge-wrap
+  				  = link_to "#", class: "button roundsmall", id: "button-back-this-proj", title: "Back This Project" do
+  				    | DONATE
+  				    small 10 USD MINIMAL INVESTMENT
       .clear

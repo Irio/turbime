@@ -181,7 +181,7 @@ a#logo{
 .home-intro{
 	background: url("black_bg.png");
 	min-height: 400px;
-	padding: 10px 0px;
+	padding: 50px 0px 10px 0px;
 	color: $white;
 	h1{
 		font-size: 30px;
@@ -322,5 +322,27 @@ a#logo{
 			color: darken($gray, 30%);
 			line-height: 20px;
 		}
+	}
+}
+.donate-button{
+	width: 280px;
+	height: 55px;
+	background: #87C442;
+	color: #333;
+	line-height: 20px;
+	padding-top: 10px; /* revisar */ 
+	vertical-align: baseline;
+	border-radius: 5px;
+	text-align: center;
+	a{
+		color: white;
+		text-decoration: none;
+		font-size: 20px;
+	}
+	small{
+		color: #497323;
+		text-decoration: none;
+		font-size: 14px;
+		display: block;
 	}
 }
