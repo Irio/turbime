@@ -54,5 +54,13 @@ feature "Managing projects" do
     subject = Project.make!
     visit edit_project_path(subject)
     page.should have_content("Sign in")
+
+    # TODO: Rescue CanCan expections
+  end
+
+  scenario "Index must not show invisible projects" do
+    Project.make! visible: false, name: "You are not viewing this."
+    visit "/"
+    page.should_not have_content("You are not viewing this.")
   end
 end

@@ -75,6 +75,23 @@ describe Project do
         Project.expired.should have(1).items
       end
     end
+
+    describe "active" do
+      before do
+        user = User.make!
+        Project.make! expires_at: 1.month.from_now, user: user, visible: false
+        Project.make! expires_at: 1.month.from_now, user: user, visible: true
+        past_date = -1.month.from_now
+        Delorean.time_travel_to("2 months ago") do
+          Project.make! expires_at: past_date, user: user, visible: false
+          Project.make! expires_at: past_date, user: user, visible: true
+        end
+      end
+
+      it "should return visible AND NOT expired projects" do
+        Project.active.should have(1).item
+      end
+    end
   end
 
   describe "auto_html ()" do
