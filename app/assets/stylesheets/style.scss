@@ -80,6 +80,23 @@ a#logo{
 		&:hover, &:focus{
 			background: $blue;
 		}
+		&.facebook, &.twitter{
+			background: url("redes.png") no-repeat center center;
+			&:hover, &:focus{
+				background-color: $blue;
+			}
+			span{
+				visibility: hidden;
+			}
+		}
+		&.facebook{
+			width: 10px;
+			background-position: 20px center;
+		}
+		&.twitter{
+			width: 10px;
+			background-position: -25px center;
+		}
 	}
 }
 #header li{
@@ -161,12 +178,18 @@ a#logo{
 }
 .home-intro{
 	background: url("black_bg.png");
+	min-height: 400px;
 	padding: 10px 0px;
-	> .pull-left{
+	> .center{
+		> .pull-left{
+			.btn{
+				font-size: 30px;
+				padding: 20px 30px;
+			}
+		}
+		> .pull-right{
 		
-	}
-	> .pull-right{
-		
+		}
 	}
 }
 #home_steps{
