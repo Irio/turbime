@@ -1,0 +1,10 @@
+= simple_form_for @project do |f|
+  = f.input :name
+  = f.input :description
+  = f.input :headline
+  = f.input :video, as: :url
+  = f.input :repository, as: :url
+  = f.input :code_funded, as: :url
+  = f.input :goal
+  = f.input :expires_at
+  = f.submit t(".submit")

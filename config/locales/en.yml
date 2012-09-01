@@ -10,3 +10,8 @@ en:
   days: Days
   remaining: Remaining
   reached: Reached
+  projects:
+    form:
+      submit: "Save"
+    new:
+      new_project: "New project"
