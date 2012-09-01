@@ -324,3 +324,25 @@ a#logo{
 		}
 	}
 }
+.donate-button{
+	width: 280px;
+	height: 55px;
+	background: #87C442;
+	color: #333;
+	line-height: 20px;
+	padding-top: 10px; /* revisar */ 
+	vertical-align: baseline;
+	border-radius: 5px;
+	text-align: center;
+	a{
+		color: white;
+		text-decoration: none;
+		font-size: 20px;
+	}
+	small{
+		color: #497323;
+		text-decoration: none;
+		font-size: 14px;
+		display: block;
+	}
+}
