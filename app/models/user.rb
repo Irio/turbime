@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :image_url,
     :password_confirmation, :remember_me, :github, :twitter, :facebook, :site
   has_many :authorizations, dependent: :destroy
+  has_many :projects
 
   validates :name, presence: true
   validates :github, :twitter, :facebook, :site, format: { with: URI::regexp(%w(http https)) }, allow_nil: true

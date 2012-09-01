@@ -109,4 +109,8 @@ describe User do
       should have_at_least(1).error_on(:site)
     end
   end
+
+  describe "associations" do
+    it { should have_many :projects }
+  end
 end
