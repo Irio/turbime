@@ -14,7 +14,18 @@ en:
   sign_in: Login
   sign_up: Sign up
   sign_out: Logout
+  projects:
+    new:
+      new_project: New project
   project:
     submit:
       create: Create project
       update: Update project
+    new:
+      new_project: "New project"
+  activerecord:
+    errors:
+      models:
+        project:
+          attributes:
+            expires_at: "must be 1 week in the future."
