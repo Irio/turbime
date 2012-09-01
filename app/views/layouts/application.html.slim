@@ -41,13 +41,13 @@ html
                   span Twitter
               - if user_signed_in?
                 li
-                  = link_to "PROFILE", edit_user_registration_path
-                  = link_to "SIGN OUT", destroy_user_session_path, method: :delete
+                  = link_to t('profile'), edit_user_registration_path
+                  = link_to t('sign_out'), destroy_user_session_path, method: :delete
               - else
                 li
-                  = link_to "SIGN UP", new_user_registration_path
+                  = link_to t('sign_up'), new_user_registration_path
                 li
-                  = link_to "LOGIN", new_user_session_path
+                  = link_to t('sign_in'), new_user_session_path
         .clear
       .clear
 
