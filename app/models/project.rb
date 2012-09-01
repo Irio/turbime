@@ -9,4 +9,14 @@ class Project < ActiveRecord::Base
   # Scopes
   scope :visible, where(visible: true)
   scope :expired, where("expires_at < current_timestamp")
+
+  auto_html_for :description do
+    html_escape
+    image
+    youtube :width => 400, :height => 250
+    vimeo :width => 400, :height => 250
+    redcarpet
+    link :target => "_blank"
+    simple_format
+  end
 end

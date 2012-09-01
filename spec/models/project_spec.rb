@@ -57,4 +57,17 @@ describe Project do
       end
     end
   end
+
+  describe "auto_html ()" do
+    text = "A _simple_ description of *project* http://turbi.me"
+    let(:project) { Project.make!(:description => text) }
+
+    it "should have the right description" do
+      project.description.should == "A _simple_ description of *project* http://turbi.me"
+    end
+
+    it "should have the right description_html" do
+      project.description_html.should == "<p><p>A <em>simple</em> description of <em>project</em> <a href=\"http://turbi.me\" target=\"_blank\">http://turbi.me</a></p>\n</p>"
+    end
+  end
 end

@@ -27,10 +27,13 @@ gem "slim-rails"
 
 # Tools
 gem 'simple_form'
-#gem 'auto_html'
+gem 'auto_html'
 
 # Administration
 #gem 'activeadmin'
+
+# Authorizations
+gem "cancan"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
