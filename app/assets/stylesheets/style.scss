@@ -1,3 +1,8 @@
+$blue: #20C1EE;
+$blue_ligth: #4FD8FF;
+$white: #FFF;
+$gray: #CCC;
+$black: #000;
 @mixin radius($radius: 4px){
 	-webkit-border-radius: $radius;
 	-ms-border-radius: $radius;
@@ -27,18 +32,24 @@ h1,h2,h3,h4,h5,h6{
 		font-size: 32px;
 	}
 }
+strong, b{
+	font-weight: bold;
+}
 .btn{
-	background: #20C1EE;
+	background: $blue;
+}
+.input-prepend .add-on{
+	vertical-align: bottom;
 }
 
 body{
 	padding-top: 81px;
-	background: #FFF;
+	background: $white;
 }
 #header{
-	background: #20C1EE;
+	background: $blue;
 	height: 80px;
-	border-bottom: 1px solid #FFF;
+	border-bottom: 1px solid $white;
 	line-height: 80px;
 	position: fixed;
 	top: 0px;
@@ -48,7 +59,7 @@ body{
 #header a{
 	height: 80px;
 	line-height: 80px;
-	color: #FFF;
+	color: $white;
 	display: inline-block;
 }
 a#logo{
@@ -63,7 +74,13 @@ a#logo{
 	min-width: 670px;
 }
 #header .menu > .pull-right{
-	background: #4FD8FF;
+	background: $blue_ligth;
+	a{
+		padding: 0px 20px;
+		&:hover, &:focus{
+			background: $blue;
+		}
+	}
 }
 #header li{
 	display: inline;
@@ -76,7 +93,7 @@ a#logo{
 	padding: 15px 10px 15px 50px;
 }
 #header nav a:hover{
-	background-color: #000;
+	background-color: $black;
 }
 #header nav a span{
 	display: block;
@@ -96,11 +113,41 @@ a#logo{
 .box-list .box img{
 	display: block;
 	max-width: 300px;
+	min-height: 120px;
 }
 .box-list .box{
 	background: #EEE;
 	width: 300px;
 	float: left;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	.project-title{
+		background: $blue_ligth;
+		padding: 10px 20px;
+		color: $white;
+	}
+	a{
+		color: $black;
+	}
+	.description{
+		padding: 10px 20px;
+	}
+	.progress{
+		margin: 5px 10px 0px 10px;
+	}
+	.progress-text{
+		text-align: center;
+		margin-bottom: 5px;
+		min-height: 40px;
+		span{
+			width: 40%;
+			text-align: center;
+			display: inline-block;
+			strong{
+				display: block;
+			}
+		}
+	}
 }
 .box-list .box.centered{
 	margin: 0px 20px;
@@ -112,6 +159,62 @@ a#logo{
 #footer .pull-right li{
 	display: inline;
 }
+.home-intro{
+	background: url("black_bg.png");
+	padding: 10px 0px;
+	> .pull-left{
+		
+	}
+	> .pull-right{
+		
+	}
+}
+#home_steps{
+	margin: 0 0 44px -9px;
+}
+#home_steps ul{
+	list-style-type: none;
+	margin: 0px;
+	li {
+		height: 80px;
+		width: 300px;
+		span{
+			font-size: 24px;
+			font-weight: bold;
+			margin-left: 90px;
+			&.span1.title{
+				font-size: 106px;
+				position: relative;
+				width: 95px;
+				text-align: center;
+				margin: 0;
+				top: 54px;
+				color: $blue_ligth;
+			}
+			&.span1{
+				line-height: 25px;
+				width: 200px;
+			}
+		}
+		&.span3, .span3{
+			margin: 0;
+		}
+	}
+	hr.vertical{
+		background: url("linha-vertical.png") repeat scroll 0 0 transparent;
+		height: 75px;
+		margin: 0;
+		position: absolute;
+		top: -25px;
+		width: 1px;
+		&.left{
+			left: 0;
+		}
+		&.right{
+			right: 0;
+		}
+	}
+}
 .sign_box{
 	.modal-body{
 		padding: 0px;
@@ -120,7 +223,7 @@ a#logo{
 		max-height: none;
 		overflow: auto;
 		label{
-			color: #CCC;
+			color: $gray;
 			margin-bottom: 8px;
 		}
 		.add-on{
@@ -147,7 +250,7 @@ a#logo{
 	padding-top: 10px;
 	padding-bottom: 10px;
 	@include radius(4px);
-	color: #FFF;
+	color: $white;
 	&.facebook{
 		background: #496499 url("redes.png") no-repeat 20px center;
 	}

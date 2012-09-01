@@ -125,7 +125,7 @@ Devise.setup do |config|
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
   # config.timeout_in = 30.minutes
-  
+
   # If true, expires auth token on session timeout.
   # config.expire_auth_token_on_timeout = false
 
@@ -230,6 +230,6 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = "/my_engine/users/auth"
   config.omniauth :facebook, '359832334092122', 'cc9d52a85d3cd1759b7e6d578a4037f3'
-  config.omniauth :twitter, 'APP_ID', 'APP_SECRET'
+  config.omniauth :twitter, 'l3VzQrRIFsR3bR7dDs1POw', 'ipBCLA1MkCY0PFdn9ZFxdQPtHhDIGXDolXYOH9cM'
 
 end
