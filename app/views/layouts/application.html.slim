@@ -7,7 +7,7 @@ html
     meta[http-equiv="Content-Type" content="text/html;charset=utf-8"]
     title
       = content_for?(:title) ? "#{yield(:title)} Turbi.me" : "Turbi.me"
-    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "application", "http://fonts.googleapis.com/css?family=Sansita+One", "http://fonts.googleapis.com/css?family=Kameron"
     meta[name="description" content=""]
     meta[name="keywords" content=""]
     meta[name="author" content=""]
@@ -24,11 +24,11 @@ html
           nav.pull-left
             ul
               li
-                a#header-discover href="#"
+                = link_to root_path, id: "header-discover" do
                   | Discover
                   span great projects
               li
-                a#header-start href="#"
+                = link_to new_project_path, id: "header-start" do
                   | Start
                   span your project
           .pull-right

@@ -3,9 +3,9 @@ section.home-intro
     .pull-left
       h1 = t('home.intro.title')
       p = t('home.intro.pitch')
-      = link_to t('home.start_your_project'), "projects_path", class: "btn"
+      = link_to t('home.start_your_project'), projects_path, class: "btn"
     .pull-right
-      div style="background:red;width:460px;height:40px;"
+      iframe src="http://player.vimeo.com/video/10092822?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
     .clear
 
 section.box-list
@@ -13,7 +13,7 @@ section.box-list
     - @projects.each_with_index do |project,i|
       .show class="#{i % 3 == 1 ? "box centered" : "box"}"
         div
-          = link_to "project_path project" do
+          = link_to project_path(project) do
             - a = percent project
             img src="" alt=""
             h2.project-title = project.name

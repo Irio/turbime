@@ -28,6 +28,19 @@ describe Project do
         should have_at_least(1).error_on(:repository)
       end
     end
+
+    describe "expires_at" do
+      it "dont accepts dates in the past" do
+        subject.expires_at = DateTime.current - 1.day
+        subject.should have_at_least(1).error_on(:expires_at)
+      end
+
+      it "accepts dates in more than one week" do
+        subject = Project.make
+        subject.expires_at = DateTime.current + 1.5.weeks
+        subject.should be_valid
+      end
+    end
   end
 
   describe "associations" do
@@ -51,8 +64,12 @@ describe Project do
       before do
         user = User.make!
         Project.make! expires_at: 1.month.from_now, user: user
-        Project.make! expires_at: -1.month.from_now, user: user
+        past_date = -1.month.from_now
+        Delorean.time_travel_to("2 months ago") do
+          Project.make! expires_at: past_date, user: user
+        end
       end
+
       it "should return only expired projects" do
         Project.expired.should have(1).items
       end

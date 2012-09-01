@@ -5,6 +5,11 @@ class Project < ActiveRecord::Base
   # Validates
   validates :name, :headline, :description, :goal, :video, :user, :presence => true
   validates :repository, :video, format: {with: URI::regexp(%w[http https]), allow_nil: true, allow_blank: true}
+  validates_each :expires_at do |record, attr, value|
+    record.errors.add(attr,
+      I18n.t(".activerecord.errors.models.project.attributes.expires_at")
+    ) if value && value < 1.week.from_now
+  end
 
   # Scopes
   scope :visible, where(visible: true)
