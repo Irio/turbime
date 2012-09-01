@@ -1,32 +1,51 @@
 require 'spec_helper'
 
 describe ProjectsController do
-
+  let(:user) { User.make! }
+  let(:project) { Project.make! user: user }
   describe "GET 'index'" do
-    it "returns http success" do
+    it "should returns http success" do
       get 'index'
       response.should be_success
     end
   end
 
-  describe "DELETE 'destroy'" do
-    it "denies project's owner to delete it" do
-      project = Project.make!
-      sign_in project.user
-      delete 'destroy', id: project.id
-
-      project.should_not be_destroyed
-      response.should redirect_to(new_user_session_path)
+  describe "GET 'new'" do
+    describe "without sign in" do
+      it "shoult returns redirect to users sign in url" do
+        get :new
+        response.should redirect_to(new_user_session_url)
+      end
     end
 
-    it "denies users to delete projects" do
-      project = Project.make!
-      sign_in User.make!
-      delete 'destroy', id: project.id
+    describe "with sign in" do
+      before do
+        sign_in user
+      end
 
-      project.should_not be_destroyed
-      response.should redirect_to(new_user_session_path)
+      it "should returns http success" do
+        get :new
+        response.should be_success
+      end
     end
   end
+  describe "GET 'edit'" do
+    describe "without sign in" do
+      it "shoult returns redirect to users sign in url" do
+        get :edit, id: project.id
+        response.should redirect_to(new_user_session_url)
+      end
+    end
 
+    describe "with sign in" do
+      before do
+        sign_in user
+      end
+
+      it "should returns http success" do
+        get :edit, id: project.id
+        response.should be_success
+      end
+    end
+  end
 end
