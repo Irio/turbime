@@ -25,16 +25,16 @@ section
           span.block
             = t('days_to_go')
         .donate-button
-  				.hide-ended#pledge-wrap
-  				  = link_to "#", class: "button roundsmall", id: "button-back-this-proj", title: "Back This Project" do
-  				    | DONATE
-  				    small 10 USD MINIMAL INVESTMENT
+          .hide-ended#pledge-wrap
+            = link_to "#", class: "button roundsmall", id: "button-back-this-proj", title: "Back This Project" do
+              | DONATE
+              small 10 USD MINIMAL INVESTMENT
       .clear
     .share-social
       .fb-like data-href="#{request.url.html_safe}" data-send="false" data-layout="button_count" data-width="140" data-show-faces="false" style="vertical-align:top;min-width:100px"
       = link_to "Tweet", "https://twitter.com/share", class: "twitter-share-button", :"data-url" => "#{request.url.html_safe}", :"data-text" => "Texto que vai ser usado", :"data-via" => "turbime", :"data-lang" => "pt", :"data-count" => "horizontal"
       .g-plusone data-size="medium" data-href="#{request.url.html_safe}"
     .project-description
-      = simple_format @project.description
+      = @project.description_html.html_safe
     .comments
       .fb-comments data-href="#{request.url.html_safe}" data-num-posts="5" data-width="940"

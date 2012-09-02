@@ -4,6 +4,7 @@ class SupportsController < InheritedResources::Base
   actions :new, :create
 
   def create
+    # DOTO: redirect to payment e etc...
     create! { project_url(resource.project.id) }
   end
 
