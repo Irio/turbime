@@ -1,8 +1,14 @@
 Turbi::Application.routes.draw do
+
   get "users/show"
 
   resources :projects, except: [:destroy] do
-    resources :supports, only: [:new, :create]
+    resources :supports, only: [:new, :create] do
+      member do
+        get "success_callback"
+        get "cancel_callback"
+      end
+    end
   end
 
   root to: "projects#index"

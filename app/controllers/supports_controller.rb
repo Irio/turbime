@@ -8,8 +8,40 @@ class SupportsController < InheritedResources::Base
   end
 
   def create
-    # DOTO: redirect to payment e etc...
-    create! { project_url(resource.project.id) }
+    @support = Support.new params[:support]
+    if @support.save
+      payment = Payment.new @support.amount
+      payment.setup!(
+        success_callback_project_support_url(@support.project.id, @support.id),
+        cancel_callback_project_support_url(@support.project.id, @support.id)
+      )
+      @support.update_attributes(payment_token: payment.token)
+
+      redirect_to payment.redirect_uri
+    else
+      render 'new'
+    end
+  end
+
+  def success_callback
+    support = Support.find_by_payment_token(params[:token])
+    if support
+      payment = Payment.new
+      payment.token = params[:token]
+      payment.payer_id = params[:PayerID]
+      payment.amount = support.amount
+      payment.complete!
+
+      support.confirm!
+      support.update_attributes(transaction_id: payment.identifier)
+      redirect_to root_url, notice: t(".successful_payment")
+    else
+      render nothing: true, status: :unprocessable_entity
+    end
+  end
+
+  def cancel_callback
+    redirect_to root_url, notice: t(".canceled_payment")
   end
 
   protected

@@ -29,6 +29,7 @@ gem "slim-rails"
 gem 'simple_form'
 gem 'auto_html'
 gem 'has_vimeo_video'
+gem 'paypal-express'
 
 # Administration
 #gem 'activeadmin'
