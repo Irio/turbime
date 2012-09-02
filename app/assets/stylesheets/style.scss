@@ -672,3 +672,14 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 		@include radius(0px);
   }
 }
+
+.project-links{
+  background-color: #EEE;
+  border: 2px solid #DADADA;
+  padding: 12px 17px;
+  font-size: 20px;
+}
+
+.project-repository{
+  margin-top: 5px;
+}
