@@ -40,6 +40,9 @@ en:
       new_support: "Donate"
       new_support_hint: "USD 5 minimal investiment"
       new_support_title: "Back This Project"
+    index:
+      active_projects: "Active Projects"
+      expired_projects: "Expired Projects"
   supports:
     success_callback:
       successful_payment: "Your payment was processed. Thanks for your support."
