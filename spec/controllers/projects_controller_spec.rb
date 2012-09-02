@@ -76,7 +76,7 @@ describe ProjectsController do
       sign_in user
     end
 
-    it "should assign user id on create a new project" do
+    it "should assign current user id on create a new project" do
       post :create, project: {name: project.name,
                               description: project.description,
                               headline: project.headline,

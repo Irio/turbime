@@ -1,5 +1,7 @@
 Turbi::Application.routes.draw do
-  resources :projects, except: [:destroy]
+  resources :projects, except: [:destroy] do
+    resources :supports, only: [:new, :create]
+  end
 
   root to: "projects#index"
 
