@@ -101,7 +101,7 @@ describe Project do
     end
 
     it "should have the right description_html" do
-      project.description_html.should == "<p><p>A <em>simple</em> description of <em>project</em> <a href=\"http://turbi.me\" target=\"_blank\">http://turbi.me</a></p>\n</p>"
+      project.description_html.should == "<p>A <em>simple</em> description of <em>project</em> <a href=\"http://turbi.me\" target=\"_blank\">http://turbi.me</a></p>\n"
     end
   end
 
