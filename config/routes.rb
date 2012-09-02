@@ -1,5 +1,7 @@
 Turbi::Application.routes.draw do
 
+  get "users/show"
+
   resources :projects, except: [:destroy] do
     resources :supports, only: [:new, :create] do
       member do
@@ -14,6 +16,7 @@ Turbi::Application.routes.draw do
   resources :authorizations, only: [:destroy]
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  #resources :users, only: [:show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

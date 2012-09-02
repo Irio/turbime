@@ -11,58 +11,21 @@ section.home-intro
 section.box-list
   .center
     - @projects.each_with_index do |project,i|
-      .show class="box#{" centered" if i % 3 == 1}" style="#{"clear: left" if i % 3 == 0}"
-        div
-          = link_to project_path(project) do
-            = image_tag project.image
-            h2.project-title = project.name
-            p.description
-              = project.headline
-            .progress-text
-              span
-                strong
-                  = project.days_left
-                  |  #{t('days')}
-                | #{t('remaining').upcase}
-              span
-                strong
-                  = project.percent
-                  | %
-                | #{t('reached').upcase}
-            .progress.progress-success.progress-striped
-              .bar style="width: #{project.progress}%"
+      = render 'projects/box', {project: project, i: i}
     .clear
 
 section.steps
   .center
     #home_steps
+      h2.title = t('home.how_works')
       ul
         li.span3
-          span.title.span1
-            | 1
-            hr.vertical.right
+          span.title.span1.step1
           span.span1 = t('home.steps.one')
         li.span3
-          span.title.span1
-            hr.vertical.left
-            | 2
-            hr.span1.vertical.right
+          span.title.span1.step2
           span.span1 = t('home.steps.two')
         li.span3
-          span.title.span1
-            hr.vertical.left
-            | 3
-            hr.span1.vertical.right
+          span.title.span1.step3
           span.span1 = t('home.steps.three')
-        li.span3
-          span.title.span1
-            | 4
-            hr.vertical.right
-          span.span1 = t('home.steps.four')
-        li.span3
-          span.title.span1
-            hr.vertical.left
-            | 5
-            hr.span1.vertical.right
-          span.span1 = t('home.steps.five')
       .clear

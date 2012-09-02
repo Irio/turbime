@@ -74,27 +74,38 @@ describe SupportsController do
     end
 
     describe "Second request: taking the money" do
-      it "makes a call to payment's complete! method" do
-        support = Support.make!
-        Payment.any_instance.should_receive(:complete!)
-        get :success_callback, PayerID: user.id.to_s, token: support.payment_token, project_id: support.project_id, id: support.id
+      describe "with valid params" do
+        it "makes a call to payment's complete! method" do
+          support = Support.make!
+          Payment.any_instance.should_receive(:complete!)
+          get :success_callback, PayerID: user.id.to_s, token: support.payment_token, project_id: support.project_id, id: support.id
+        end
+
+        it "sets support's transaction_id" do
+          support = Support.make!
+          Payment.any_instance.stub(:complete!)
+          Payment.any_instance.stub(:identifier).and_return("identification")
+          get :success_callback, PayerID: user.id.to_s, token: support.payment_token, project_id: support.project_id, id: support.id
+          support.reload
+          support.transaction_id.should eql("identification")
+        end
+
+        it "sets support as confirmed" do
+          support = Support.make!
+          Payment.any_instance.stub(:complete!)
+          get :success_callback, PayerID: user.id.to_s, token: support.payment_token, project_id: support.project_id, id: support.id
+          support.reload
+          support.confirmed.should be_true
+        end
       end
 
-      it "sets support's transaction_id" do
-        support = Support.make!
-        Payment.any_instance.stub(:complete!)
-        Payment.any_instance.stub(:identifier).and_return("identification")
-        get :success_callback, PayerID: user.id.to_s, token: support.payment_token, project_id: support.project_id, id: support.id
-        support.reload
-        support.transaction_id.should eql("identification")
-      end
-
-      it "sets support as confirmed" do
-        support = Support.make!
-        Payment.any_instance.stub(:complete!)
-        get :success_callback, PayerID: user.id.to_s, token: support.payment_token, project_id: support.project_id, id: support.id
-        support.reload
-        support.confirmed.should be_true
+      describe "with invalid payer_id" do
+        it "not sets support as confirmed" do
+          support = Support.make!
+          Payment.any_instance.stub(:complete!)
+          support.should_not_receive(:confirm!)
+          get :success_callback, PayerID: "invalid", token: support.payment_token, project_id: support.project_id, id: support.id
+        end
       end
     end
 

@@ -7,12 +7,11 @@ en:
       title: Fund & Features
       pitch: Turbi.me is a funding plataform for features projects.
     start_your_project: Start your project
+    how_works: How it works
     steps:
-      one: 'Você tem uma ideia de funcionalidade para seu software'
-      two: 'Você cadastra no Turbi'
-      three: 'Pessoas interessadas em usar a funcionalidade pagam por ela.'
-      four: 'É desenvolvida a funcionalidade'
-      five: 'Você libera o código como open-source'
+      one: 1 - Você cadastra uma ideia de funcionalidade para seu software
+      two: 2 - Pessoas pagam por sua funcionalidade
+      three: 3 - Você a desenvolve e disponibiliza como open source
   days: Days
   days_to_go: Days to go
   remaining: Remaining
@@ -22,6 +21,10 @@ en:
   sign_up: Sign up
   sign_out: Logout
   only_numbers: Only numbers
+  project_by: "A project by "
+  users:
+    sign_in:
+      remember_me: Remember me
   projects:
     new:
       new_project: New project
@@ -31,6 +34,7 @@ en:
       title: Edit project
     show:
       needs_approval: "This project need be approved by our team."
+      user_project_needs_approval: "This project still need be approved by our team."
       backers: "backers"
       pledged_of: "pledged of %{total} goal"
       new_support: "Donate"

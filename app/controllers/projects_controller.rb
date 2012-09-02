@@ -13,7 +13,7 @@ class ProjectsController < InheritedResources::Base
   def create
     create! do |success, failure|
       success.html do
-        redirect_to root_path, notice: t("projects.create.needs_approval")
+        redirect_to project_path(@project), notice: t("projects.create.needs_approval")
       end
     end
   end
@@ -21,6 +21,9 @@ class ProjectsController < InheritedResources::Base
   def show
     @project = Project.find(params[:id])
     if @project.visible?
+      show!
+    elsif @project.user == current_user
+      flash[:notice] = t('projects.show.user_project_needs_approval')
       show!
     else
       redirect_to root_path, notice: t("projects.show.needs_approval")
