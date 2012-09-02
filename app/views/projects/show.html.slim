@@ -34,6 +34,14 @@ section
                 small= t('.new_support_hint')
       .clear
     = render 'share_social'
+
+    - if @project.repository.present?
+      .project-repository
+        = link_to @project.repository.gsub(/http(s)?:\/\//, ''), @project.repository
+    - if @project.expired? and @project.code_funded.present?
+      .project-code_funded
+        = link_to @project.code_funded.gsub(/http(s)?:\/\//, ''), @project.code_funded
+
     .project-description
       = @project.description_html.html_safe
     = render 'comments'
