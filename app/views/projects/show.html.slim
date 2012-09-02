@@ -3,8 +3,11 @@ section
     h1.page-title
       = @project.name
       - if user_signed_in? && @project.user == current_user
-        = link_to t('.edit'), edit_project_path(@project)
+        = link_to t('.edit'), edit_project_path(@project), class: 'pull-right'
     .clear
+    p
+      = t('project_by')
+      = link_to @project.user.name, user_path(@project.user)
     .user-info.project
       .pull-left.photo
         iframe src="#{@project.vimeo.embed_url.html_safe}?title=0&amp;byline=0&amp;portrait=0&amp" width="640" height="430" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen

@@ -22,6 +22,7 @@ en:
   sign_up: Sign up
   sign_out: Logout
   only_numbers: Only numbers
+  project_by: "A project by "
   users:
     sign_in:
       remember_me: Remember me
