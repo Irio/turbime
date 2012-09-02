@@ -46,3 +46,18 @@ if Rails.env.development?
     )
   end
 end
+
+35.times do
+  project = Project.all[rand(Project.all.size)]
+  support = Support.create(
+    project_id: project.id, amount: 50, user_id: user.id, terms: "1"
+  )
+  support.confirm!
+end
+
+Project.all[0..2].each do |p|
+  yesterday = Date.yesterday
+  Delorean.time_travel_to("1 month ago") do
+    p.update_attributes(expires_at: yesterday)
+  end
+end

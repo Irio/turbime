@@ -10,9 +10,18 @@ section.home-intro
 
 section.box-list
   .center
-    - @projects.each_with_index do |project,i|
+    h2 = t('.active_projects')
+    - @active_projects.each_with_index do |project,i|
       = render 'projects/box', {project: project, i: i}
     .clear
+
+- if @expired_projects.size > 0
+  section.box-list
+    .center
+      h2 = t('.expired_projects')
+      - @expired_projects.each_with_index do |project,i|
+        = render 'projects/box', {project: project, i: i}
+      .clear
 
 section.steps
   .center

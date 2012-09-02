@@ -108,6 +108,25 @@ describe SupportsController do
         end
       end
     end
+  end
 
+  describe "should validate is project active or not" do
+    before do
+      sign_in user
+      past_date = -1.month.from_now
+      Delorean.time_travel_to("2 months ago") do
+        @project_active = Project.make! user: user, visible: true, expires_at: 3.month.from_now
+        @project_not_active = Project.make! user: user, visible: true, expires_at: past_date
+      end
+    end
+
+    it "should have a error if project is not active" do
+      lambda { get :new, project_id: @project_not_active.id }.should render_template(file: "#{Rails.root}/public/404.html")
+    end
+
+    it "should can back if project is active" do
+      get :new, project_id: @project_active.id
+      response.should be_success
+    end
   end
 end
