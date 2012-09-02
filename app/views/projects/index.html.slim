@@ -11,26 +11,7 @@ section.home-intro
 section.box-list
   .center
     - @projects.each_with_index do |project,i|
-      .show class="box#{" centered" if i % 3 == 1}" style="#{"clear: left" if i % 3 == 0}"
-        div
-          = link_to project_path(project) do
-            = image_tag project.image
-            h2.project-title = project.name
-            p.description
-              = project.headline
-            .progress-text
-              span
-                strong
-                  = project.days_left
-                  |  #{t('days')}
-                | #{t('remaining').upcase}
-              span
-                strong
-                  = project.percent
-                  | %
-                | #{t('reached').upcase}
-            .progress.progress-success.progress-striped
-              .bar style="width: #{project.progress}%"
+      = render 'projects/box', {project: project, i: i}
     .clear
 
 section.steps
