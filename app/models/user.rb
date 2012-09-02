@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   attr_accessible :name, :email, :password, :image_url,
-    :password_confirmation, :remember_me, :github, :twitter, :facebook, :site
+    :password_confirmation, :remember_me, :github, :twitter, :facebook, :site, :bio
   has_many :authorizations, dependent: :destroy
   has_many :projects
   has_many :supports

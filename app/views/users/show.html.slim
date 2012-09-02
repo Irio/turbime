@@ -1,12 +1,16 @@
 section
   .center
-    h1.page-title = t('profile')
+    h1.page-title
+      = t('profile')
+      - if user_signed_in? && @user == current_user
+        = link_to t('.edit'), edit_user_registration_path(current_user), class: 'pull-right'
+    .clear
     .user-info
       .pull-left.photo
         img src="#{@user.avatar_url}" alt="#{@user.name}"
       .pull-left.about
         h2 = @user.name
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        p = simple_format @user.bio
         .social
           ul
             li.email
