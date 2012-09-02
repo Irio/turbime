@@ -444,9 +444,12 @@ input{
 	}
 }
 .edit_profile{
+	textarea{
+		width: 922px;
+	}
 	input{
 		width: 922px;
-		&#user_name, &.password, &.email{
+		&#user_name, &.password, &.email, &#user_email, &#user_password, &#user_password_confirmation{
 			width: 881px;
 			padding-left: 45px;
 		}
@@ -540,6 +543,18 @@ input{
 		text-decoration: none;
 		font-size: 14px;
 		display: block;
+	}
+	&.not_successful{
+		background: red;
+		a{
+			
+		}
+	}
+	&.successful{
+		background: black;
+		a{
+			
+		}
 	}
 }
 .donation_form{
