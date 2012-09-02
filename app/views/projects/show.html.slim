@@ -9,7 +9,7 @@ section
       = t('project_by')
       = link_to @project.user.name, user_path(@project.user)
     .user-info.project
-      .pull-left.photo
+      .pull-left.video
         iframe src="#{@project.vimeo.embed_url.html_safe}?title=0&amp;byline=0&amp;portrait=0&amp" width="640" height="430" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen
       .pull-left.about
         p

@@ -436,12 +436,13 @@ input{
 		}
 	}
 	&.project{
-		.pull-left.photo, .pull-left.photo img{
-			width: 620px;
+		.pull-left.video{
+			width: 640px;
 //			max-height: 360px;
 		}
 		.about{
-			width: 280px;
+			width: 260px;
+			padding: 0px 10px;
 		}
 		.big{
 			font-size: 50px;

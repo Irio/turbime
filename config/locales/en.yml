@@ -35,6 +35,7 @@ en:
       title: Edit project
     show:
       needs_approval: "This project need be approved by our team."
+      user_project_needs_approval: "This project still need be approved by our team."
       backers: "backers"
       pledged_of: "pledged of %{total} goal"
       new_support: "Donate"
