@@ -209,7 +209,7 @@ a#logo{
 	}
 }
 .box-list .box.centered{
-	margin: 0px 20px;
+	margin: 0px 20px 10px 20px;
 }
 .box-list .box .link{
 	text-align: center;
@@ -441,4 +441,7 @@ a#logo{
 	span{
 		visibility: hidden;
 	}
+}
+input, input[type=text], input[type=number], input[type=password]{
+	padding: 15px 5px;
 }
