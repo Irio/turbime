@@ -8,15 +8,18 @@ class SupportsController < InheritedResources::Base
   end
 
   def create
-    create! do |format|
-      payment = Payment.new resource.amount
+    @support = Support.new params[:support]
+    if @support.save
+      payment = Payment.new @support.amount
       payment.setup!(
-        success_callback_project_support_url(resource.project.id, resource.id),
-        cancel_callback_project_support_url(resource.project.id, resource.id)
+        success_callback_project_support_url(@support.project.id, @support.id),
+        cancel_callback_project_support_url(@support.project.id, @support.id)
       )
       @support.update_attributes(payment_token: payment.token)
 
-      format.html { redirect_to payment.redirect_uri }
+      redirect_to payment.redirect_uri
+    else
+      render 'new'
     end
   end
 

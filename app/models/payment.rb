@@ -1,6 +1,5 @@
 class Payment
-  attr_reader :redirect_uri, :identifier
-  attr_accessor :amount, :token, :payer_id
+  attr_accessor :amount, :token, :payer_id, :redirect_uri, :identifier
 
   DESCRIPTION = {
     item: "Support on feature",
