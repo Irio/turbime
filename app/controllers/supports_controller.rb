@@ -8,8 +8,23 @@ class SupportsController < InheritedResources::Base
   end
 
   def create
-    # DOTO: redirect to payment e etc...
-    create! { project_url(resource.project.id) }
+    create! do |format|
+      payment = Payment.new resource.amount
+      payment.setup!(
+        success_callback_project_support_url(resource.project, resource),
+        cancel_callback_project_support_url(resource.project, resource)
+      )
+
+      format.html { redirect_to payment.redirect_uri }
+    end
+  end
+
+  def success_callback
+    redirect_to root_url, notice: t(".successful_payment")
+  end
+
+  def cancel_callback
+    redirect_to root_url, notice: t(".canceled_payment")
   end
 
   protected

@@ -36,9 +36,29 @@ describe SupportsController do
     it "should assign current user id and project id on create a new support" do
       post :create, project_id: project.id, support: { amount: 20 }
       new_support = Support.last
-      response.should redirect_to(project_url(project.id))
       new_support.user.should == user
       new_support.project.should == project
+    end
+  end
+
+  describe "payment" do
+    before { sign_in user }
+
+=begin
+    it "initializes a new payment" do
+      Payment.should_receive(:new).with(20).and_return(double.as_null_object)
+      Payment.any_instance.stub(:redirect_uri).and_return("http://turbi.me/")
+      post :create, project_id: project.id, support: { amount: 20 }
+    end
+=end
+
+    it "makes a call to setup! method" do
+      SupportsController.any_instance.stub(:success_callback_project_support_url).and_return("http://success")
+      SupportsController.any_instance.stub(:cancel_callback_project_support_url).and_return("http://cancel")
+      Payment.any_instance.stub(:redirect_uri).and_return("http://turbi.me/")
+
+      Payment.any_instance.should_receive(:setup!).with("http://success", "http://cancel").and_return(true)
+      post :create, project_id: project.id, support: { amount: 20 }
     end
   end
 end
