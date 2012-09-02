@@ -26,7 +26,7 @@ section
             = t('days_to_go')
         .donate-button
           .hide-ended#pledge-wrap
-            = link_to "#", class: "button roundsmall", id: "button-back-this-proj", title: "Back This Project" do
+            = link_to new_project_support_url(@project), class: "button roundsmall", id: "button-back-this-proj", title: "Back This Project" do
               | DONATE
               small 10 USD MINIMAL INVESTMENT
       .clear
