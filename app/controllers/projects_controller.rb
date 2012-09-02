@@ -6,7 +6,8 @@ class ProjectsController < InheritedResources::Base
   before_filter :assign_user_id, only: [:create]
 
   def index
-    @projects = Project.active
+    @active_projects = Project.active
+    @expired_projects = Project.expired
     index!
   end
 
