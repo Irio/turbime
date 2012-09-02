@@ -21,7 +21,20 @@ class SupportsController < InheritedResources::Base
   end
 
   def success_callback
-    redirect_to root_url, notice: t(".successful_payment")
+    support = Support.find_by_payment_token(params[:token])
+    if support
+      payment = Payment.new
+      payment.token = params[:token]
+      payment.payer_id = params[:PayerID]
+      payment.amount = support.amount
+      payment.complete!
+
+      support.confirm!
+      support.update_attributes(transaction_id: payment.identifier)
+      redirect_to root_url, notice: t(".successful_payment")
+    else
+      render nothing: true, status: :unprocessable_entity
+    end
   end
 
   def cancel_callback

@@ -1,13 +1,13 @@
 class Payment
-  attr_reader :token, :redirect_uri
-  attr_accessor :amount
+  attr_reader :redirect_uri, :identifier
+  attr_accessor :amount, :token, :payer_id
 
   DESCRIPTION = {
     item: "Support on feature",
     payment: "Turbi.me"
   }
 
-  def initialize(amount, custom_logger = nil)
+  def initialize(amount = nil, custom_logger = nil)
     @amount = amount
     @logger = custom_logger || Rails.logger
   end
@@ -27,6 +27,13 @@ class Payment
     self
   end
 
+  def complete!
+    binding.pry
+    response = client.checkout!(token, payer_id, payment_request)
+    self.payer_id = payer_id
+    self.identifier = response.payment_info.first.transaction_id
+  end
+
   private
 
   def client
@@ -36,7 +43,7 @@ class Payment
   def payment_request
     item = {
       name: DESCRIPTION[:item],
-      description: DESCRIPTION[:item],
+      #description: DESCRIPTION[:item],
       amount: amount,
       category: :Digital
     }
