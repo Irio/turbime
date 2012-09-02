@@ -20,13 +20,4 @@ describe Support do
       support.confirmed.should == true
     end
   end
-
-  describe "#confirmed" do
-    let(:project) { Project.make! goal: 1000 }
-    let(:project_2) { Project.make! goal: 1200 }
-    before do
-      10.times { |i| Support.make!(project: project, amount: 100).confirm! }
-      3.times { |i| Support.make!(project: project_2, amount: 100).confirm! }
-    end
-  end
 end

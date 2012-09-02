@@ -6,9 +6,6 @@ class Support < ActiveRecord::Base
   attr_protected :confirmed
   before_validation :create_payment_token, only: [:create]
 
-  # Scopes
-  scope :confirmed, where(confirmed: true)
-
   def confirm!
     self.update_column :confirmed, true
   end
