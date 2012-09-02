@@ -28,7 +28,6 @@ class Payment
   end
 
   def complete!
-    binding.pry
     response = client.checkout!(token, payer_id, payment_request)
     self.payer_id = payer_id
     self.identifier = response.payment_info.first.transaction_id
