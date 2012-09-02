@@ -108,6 +108,8 @@ body{
 	height: 80px;
 	border-bottom: 1px solid $white;
 	line-height: 80px;
+	min-width: 940px;
+	width: 100%;
 }
 @media screen and (min-width:940px){
 	body{
@@ -116,7 +118,6 @@ body{
 	#header{
 		position: fixed;
 		top: 0px;
-		width: 100%;
 		z-index: 10;
 	}
 }
@@ -245,8 +246,11 @@ a#logo{
 	background: url("bg-footer-top.png") repeat-x center top;
 	padding-top: 24px;
 	margin-top: 20px;
+	min-width: 940px;
+	width: 100%;
 	.all{
 		background: url("bg-footer.png") repeat center top;
+		min-width: 940px;
 		width: 100%;
 		min-height: 286px;
 		padding-top: 50px;
@@ -300,6 +304,7 @@ a#logo{
 .home-intro{
 	background: url("black_bg.png");
 	min-height: 315px;
+	min-width: 940px;
 	margin-bottom: 20px;
 	padding: 50px 0px 10px 0px;
 	color: $white;
