@@ -80,4 +80,36 @@ feature "Managing projects" do
     click_on "Start your project"
     page.should_not have_css("input#project_code_funded")
   end
+
+  scenario "User should know if the project is successful" do
+    user = auth_user
+    project = Project.make! visible: true, goal: 1000
+    11.times { Support.make! user: user, project: project, amount: 100 }
+
+    past_date = -1.month.from_now
+    Delorean.time_travel_to("2 months ago") do
+      project.update_column :expires_at, past_date
+    end
+
+    visit project_path(project)
+    page.should have_css(".donate-button.successful")
+    page.should_not have_css(".donate-button.not_successful")
+    page.should have_content("Funded")
+  end
+
+  scenario "User should know if the project is not successful" do
+    user = auth_user
+    project = Project.make! visible: true, goal: 1000
+    5.times { Support.make! user: user, project: project, amount: 100 }
+
+    past_date = -1.month.from_now
+    Delorean.time_travel_to("2 months ago") do
+      project.update_column :expires_at, past_date
+    end
+
+    visit project_path(project)
+    page.should_not have_css(".donate-button.successful")
+    page.should have_css(".donate-button.not_successful")
+    page.should have_content("Not Funded")
+  end
 end

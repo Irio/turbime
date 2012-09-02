@@ -59,8 +59,5 @@ group :development, :test do
   gem "jasmine"
   gem "pry"
   gem 'awesome_print'
-end
-
-group :test do
   gem "delorean"
 end
