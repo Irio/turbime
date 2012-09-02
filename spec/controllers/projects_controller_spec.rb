@@ -71,19 +71,19 @@ describe ProjectsController do
     end
   end
 
-  describe "#fix_user_id" do
+  describe "#assign_user_id" do
     before do
       sign_in user
     end
 
-    it "should fix user id on create a new project" do
+    it "should assign user id on create a new project" do
       post :create, project: {name: project.name,
                               description: project.description,
                               headline: project.headline,
                               goal: project.goal,
                               video: project.video}
       new_porject = Project.last
-      response.should redirect_to(project_url(new_porject))
+      response.should redirect_to(root_path)
       new_porject.user.should == user
     end
   end
