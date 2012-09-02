@@ -4,7 +4,14 @@ class Support < ActiveRecord::Base
   attr_accessible :amount, :payment_method, :payment_token, :translaction_id
   validates :user, :project, :amount, :payment_token, presence: true
   attr_protected :confirmed
-  before_validation :create_payment_token
+  before_validation :create_payment_token, only: [:create]
+
+  # Scopes
+  scope :confirmed, where(confirmed: true)
+
+  def confirm!
+    self.update_column :confirmed, true
+  end
 
   protected
   def create_payment_token
