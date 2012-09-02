@@ -22,7 +22,6 @@ feature "Managing projects" do
     fill_in "Headline", with: "Lorem ipsum dolor sit amet"
     fill_in "Video", with: "http://vimeo.com/43439161"
     fill_in "Repository", with: "https://github.com/Irio/mymoip"
-    fill_in "Code funded", with: "https://github.com/Irio/mymoip/tree/v0.1.0"
     fill_in "Goal", with: "10.00"
     select_date (Date.current + 2.weeks), from: "project_expires_at"
     click_on "Create project"
@@ -47,15 +46,13 @@ feature "Managing projects" do
     page.should_not have_content("Edit")
 
     visit edit_project_path(subject)
-    page.should have_content("You are not authorized to access this page.")
+    page.should have_content("401")
   end
 
   scenario "Guests cannot edit projects" do
     subject = Project.make!
     visit edit_project_path(subject)
-    page.should have_content("Sign in")
-
-    # TODO: Rescue CanCan expections
+    page.should have_content("401")
   end
 
   scenario "Index must not show invisible projects" do
@@ -75,5 +72,12 @@ feature "Managing projects" do
     project = Project.make! visible: false
     visit project_path(project)
     page.should have_content("Start your project")
+  end
+
+  scenario "Code funded input must not appear when creating a project" do
+    user = auth_user
+    visit "/"
+    click_on "Start your project"
+    page.should_not have_css("input#project_code_funded")
   end
 end
