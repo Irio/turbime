@@ -1,0 +1,110 @@
+h1, h2, h3{
+	font: 'Sansita one', Georgia, serif;
+}
+
+h1{
+	font-size: 60px;
+	color: white;
+	background: #202020; /* deletar */	
+}
+
+h2.banner{
+	font-size: 18px;
+	font:'Kameron', Georgia, serif;
+	font-weight: 100;
+	color: white;
+	background: #202020; /* deletar */	
+}
+
+h3.boxes{
+	font-size: 18px;
+	font-weight: bold;
+	color: #33ccff;
+}
+
+h3.profile{
+	font-size: 40px;
+	font-weight: bold;
+	color: #555555;
+}
+
+p{
+	font:'Kameron', Georgia, serif;
+	line-height: 10px;
+	padding: 10px;
+	margin: 10px;
+}
+
+p.pequeno{
+	font-size: 12px;
+	color: #666;
+	line-height: 10px;
+	padding: 12px;
+	margin: 12px;
+
+}
+
+p.medio{
+	font-size: 14px;
+	color: #666;
+	line-height: 15px;
+	padding: 15px;
+	margin: 15px;
+
+}
+
+p.grande{
+	font-size: 20px;
+	color: #666;
+	line-height: 20px;
+	padding: 20px;
+	margin: 20px;
+
+}
+
+.cta-backers{
+	width: 280px;
+	height: 55px;
+	background: #87C442;
+	color: #333;
+	line-height: 20px;
+	padding-top: 10px; /* revisar */ 
+	vertical-align: baseline;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.cta-backers a{
+	color: white;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+.cta-backers small{
+	color: #497323;
+	text-decoration: none;
+	font-size: 14px;
+	display: block;
+}
+
+.error404{
+	width: 700px;
+	height: 560px;
+	background: url(404.jpg) no-repeat;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+	margin-top: 150px;
+}
+
+.error404 h3{
+	color: #fa0606;
+	margin-top: 400px;
+	padding: 20px;
+}
+
+.error404 a {
+	color: #ccc;
+	border-bottom: 1px dotted #666;
+	text-decoration: none;
+	padding-left: 20px;
+}

@@ -10,37 +10,37 @@
         .form-inputs
           = f.input :name, :required => true, :autofocus => true, :wrapper => :prepend do
             = content_tag :span, content_tag(:i, "", :class => 'icon-user'), :class => "add-on"
-            = f.input_field :name, style: "width: 242px"
+            = f.input_field :name
 
           = f.input :email, :required => true, :wrapper => :prepend do
             = content_tag :span, content_tag(:i, "", :class => 'icon-envelope'), :class => "add-on"
-            = f.input_field :email, style: "width: 242px"
+            = f.input_field :email
 
           = f.input :password, :autocomplete => "off", :required => false, :wrapper => :prepend do
             = content_tag :span, content_tag(:i, "", :class => 'icon-lock'), :class => "add-on"
-            = f.input_field :password, style: "width: 242px"
+            = f.input_field :password
 
           = f.input :password_confirmation, :required => false, :wrapper => :prepend do
             = content_tag :span, content_tag(:i, "", :class => 'icon-lock'), :class => "add-on"
-            = f.input_field :password_confirmation, style: "width: 242px"
+            = f.input_field :password_confirmation
 
           = f.input :current_password, :required => true, :wrapper => :prepend do
             = content_tag :span, content_tag(:i, "", :class => 'icon-lock'), :class => "add-on"
-            = f.input_field :current_password, style: "width: 242px"
+            = f.input_field :current_password
 
           = f.input :github, :wrapper => :prepend do
-            = f.url_field :github, style: "width: 242px"
+            = f.url_field :github
 
           = f.input :twitter, :wrapper => :prepend do
-            = f.url_field :twitter, style: "width: 242px"
+            = f.url_field :twitter
 
           = f.input :facebook, :wrapper => :prepend do
-            = f.url_field :facebook, style: "width: 242px"
+            = f.url_field :facebook
 
           = f.input :site, :wrapper => :prepend do
-            = f.url_field :site, style: "width: 242px"
+            = f.url_field :site
 
-        = f.button :submit, t(".update"), class: "btn-primary", style: "width: 280px"
+        = f.button :submit, t(".update"), class: "btn"
 
     .span6
       - if devise_mapping.omniauthable?
