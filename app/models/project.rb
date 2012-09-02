@@ -27,7 +27,6 @@ class Project < ActiveRecord::Base
     vimeo :width => 400, :height => 250
     redcarpet
     link :target => "_blank"
-    simple_format
   end
 
   def cannot_edit?(attr)
