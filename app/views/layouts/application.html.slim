@@ -13,7 +13,6 @@ html
     meta[name="author" content=""]
     = yield(:meta_tags)
     = csrf_meta_tag
-    = javascript_include_tag "application"
     = render "layouts/analytics"
 
   body data-controller-class=controller.class.name data-controller-name=controller.controller_name.camelize data-action=controller.action_name.camelize
@@ -91,3 +90,4 @@ html
           = link_to "http://startupideias.com.br/", id: "logo-footer", target: "_blank" do
             span STARTUPIDEIAS
           .clear
+    = javascript_include_tag "application"
