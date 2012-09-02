@@ -7,6 +7,5 @@ section.edit_project
     = simple_form_for @support, url: project_supports_path(params[:project_id]) do |f|
       .model-body.form-inputs
         = f.input :amount, pattern: "\d+[\.\d+]?", title: t('only_numbers')
-        = check_box_tag :accept_terms
-        = label_tag :accept_terms
+        = f.input :terms, as: :boolean
         = f.button :submit, class: "btn-primary"
