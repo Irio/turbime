@@ -247,7 +247,7 @@ a#logo{
 	list-style-type: none;
 	margin: 0px;
 	li {
-		height: 140px;
+		min-height: 140px;
 		width: 300px;
 		span{
 			font-size: 24px;
@@ -336,7 +336,7 @@ a#logo{
 	color: #555;
 	.pull-left.photo, .pull-left.photo img{
 		width: 400px;
-		max-height: 400px;
+//		max-height: 400px;
 	}
 	.about{
 		width: 500px;
@@ -354,7 +354,7 @@ a#logo{
 	&.project{
 		.pull-left.photo, .pull-left.photo img{
 			width: 620px;
-			max-height: 360px;
+//			max-height: 360px;
 		}
 		.about{
 			width: 280px;
@@ -394,6 +394,9 @@ a#logo{
 		font-size: 14px;
 		display: block;
 	}
+}
+.comments{
+	margin-bottom: 20px;
 }
 #logo-footer{
 	display: block;
