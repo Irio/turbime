@@ -7,7 +7,7 @@ section
     .clear
     .user-info.project
       .pull-left.photo
-        img src="/assets/logo.png" alt="#{@project.name}"
+        iframe src="#{@project.vimeo.embed_url.html_safe}?title=0&amp;byline=0&amp;portrait=0&amp" width="640" height="430" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen
       .pull-left.about
         p
           span.big = "10"
@@ -37,4 +37,4 @@ section
     .project-description
       = simple_format @project.description
     .comments
-      .fb-comments data-href="#{request.url.html_safe}" data-num-posts="5" data-width="600"
+      .fb-comments data-href="#{request.url.html_safe}" data-num-posts="5" data-width="940"
