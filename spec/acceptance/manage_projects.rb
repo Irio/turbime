@@ -130,10 +130,25 @@ feature "Managing projects" do
     find('a#donate')['href'].should == "http://www.example.com#{new_project_support_path(project)}"
   end
 
-  scenario "Should have link project repository" do
+  scenario "Should have link to project repository" do
     user = auth_user
     project = Project.make! visible: true, goal: 1000
     visit project_path(project)
     page.should have_css('.project-repository')
+  end
+
+  scenario "Should have link to project code_founded" do
+    past_date = -1.month.from_now
+    Delorean.time_travel_to("2 months ago") do
+      @project = Project.make! visible: true, goal: 1000, expires_at: past_date, code_funded: "http://githiub.com/josemarluedke"
+    end
+    visit project_path(@project)
+    page.should have_css('.project-code_funded')
+  end
+
+  scenario "Should not have link to project code_founded if not expired" do
+    @project = Project.make! visible: true, goal: 1000, expires_at: 1.month.from_now, code_funded: "http://githiub.com/josemarluedke"
+    visit project_path(@project)
+    page.should_not have_css('.project-code_funded')
   end
 end
