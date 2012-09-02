@@ -10,25 +10,28 @@ section
         iframe src="#{@project.vimeo.embed_url.html_safe}?title=0&amp;byline=0&amp;portrait=0&amp" width="640" height="430" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen
       .pull-left.about
         p
-          span.big = "10"
-          // @project.helpers ou algo parecido
-          |  backers
+          span.big
+            = @project.supports.confirmed.count
+          = t('.backers')
         p
-          span.big.block = number_to_currency(100, country: :en)
+          span.big.block = number_to_currency(@project.amount_reached)
           span.block
-          |  pledged of 
-          = number_to_currency(100, country: :en)
-          |  goal
+          = t('.pledged_of', total: number_to_currency(@project.goal))
         p
           span.big.block
-            = days_left @project
+            = @project.days_left
           span.block
             = t('days_to_go')
-        .donate-button
+        .donate-button[class="#{'not_successful' if not @project.successful? and @project.expired?} #{'successful' if @project.successful? and @project.expired?}"]
           .hide-ended#pledge-wrap
-            = link_to new_project_support_url(@project), class: "button roundsmall", id: "button-back-this-proj", title: "Back This Project" do
-              | DONATE
-              small 10 USD MINIMAL INVESTMENT
+            = link_to "#{@project.active? ? new_project_support_url(@project) : '#'}", class: "button roundsmall", id: "button-back-this-proj", title: t('.new_support_title'), id: "donate" do
+              - if not @project.successful? and @project.expired?
+                = t('project.not_funded')
+              - elsif @project.successful? and @project.expired?
+                = t('project.funded')
+              - else
+                = t('.new_support')
+                small= t('.new_support_hint')
       .clear
     .share-social
       .fb-like data-href="#{request.url.html_safe}" data-send="false" data-layout="button_count" data-width="140" data-show-faces="false" style="vertical-align:top;min-width:100px"

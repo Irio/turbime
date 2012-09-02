@@ -54,6 +54,20 @@ class Project < ActiveRecord::Base
     amount_reached >= goal
   end
 
+  def days_left
+    days = (expires_at.to_date - Date.today).to_i
+    days > 0 ? days : 0
+  end
+
+  def percent
+    ((amount_reached / goal * 100).abs).round.to_i
+  end
+
+  def progress
+    return 100 if percent > 100
+    percent
+  end
+
   protected
   def store_image_url
     self.image = vimeo.thumbnail unless self.image

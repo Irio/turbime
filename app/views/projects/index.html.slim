@@ -14,26 +14,23 @@ section.box-list
       .show class="#{i % 3 == 1 ? "box centered" : "box"}"
         div
           = link_to project_path(project) do
-            - a = percent project
-            img src="" alt=""
+            = image_tag project.image
             h2.project-title = project.name
             p.description
-              = project.description
-            // p.link
-              // a.btn href="#" XXXX
+              = project.headline
             .progress-text
               span
                 strong
-                  = days_left project
+                  = project.days_left
                   |  #{t('days')}
                 | #{t('remaining').upcase}
               span
                 strong
-                  = a
+                  = project.percent
                   | %
                 | #{t('reached').upcase}
             .progress.progress-success.progress-striped
-              .bar style="width: #{a}%"
+              .bar style="width: #{project.progress}%"
     .clear
 
 section.steps

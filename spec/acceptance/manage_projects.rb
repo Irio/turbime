@@ -84,7 +84,7 @@ feature "Managing projects" do
   scenario "User should know if the project is successful" do
     user = auth_user
     project = Project.make! visible: true, goal: 1000
-    11.times { Support.make! user: user, project: project, amount: 100 }
+    11.times { Support.make!(user: user, project: project, amount: 100).confirm!  }
 
     past_date = -1.month.from_now
     Delorean.time_travel_to("2 months ago") do
@@ -100,7 +100,7 @@ feature "Managing projects" do
   scenario "User should know if the project is not successful" do
     user = auth_user
     project = Project.make! visible: true, goal: 1000
-    5.times { Support.make! user: user, project: project, amount: 100 }
+    5.times { Support.make!(user: user, project: project, amount: 100).confirm! }
 
     past_date = -1.month.from_now
     Delorean.time_travel_to("2 months ago") do
@@ -112,4 +112,22 @@ feature "Managing projects" do
     page.should have_css(".donate-button.not_successful")
     page.should have_content("Not Funded")
   end
+
+  scenario "Should don't have new support link if project is expired" do
+    user = auth_user
+    past_date = -1.month.from_now
+    Delorean.time_travel_to("2 months ago") do
+      @project = Project.make! visible: true, goal: 1000, expires_at: past_date
+    end
+    visit project_path(@project)
+    find('a#donate')['href'].should_not == "http://www.example.com#{new_project_support_path(@project)}"
+  end
+
+  scenario "Should have new support link for back a project" do
+    user = auth_user
+    project = Project.make! visible: true, goal: 1000
+    visit project_path(project)
+    find('a#donate')['href'].should == "http://www.example.com#{new_project_support_path(project)}"
+  end
+
 end
