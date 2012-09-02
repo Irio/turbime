@@ -1,0 +1,18 @@
+section
+  .center
+    h1.page-title = t('profile')
+    .user-info
+      .pull-left.photo
+        img src="#{@user.name}" alt="#{@user.name}"
+      .pull-left.about
+        h2 = @user.name
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      .clear
+    .projects-list
+      - @user.projects.each do |project|
+        .project
+          .pull-left
+            img src="/" alt="#{project.name}"
+          .pull-left
+            = project.name
+          .clear

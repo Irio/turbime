@@ -8,6 +8,6 @@
     = f.input :repository, required: true, as: :url, input_html: {class: "span9"}, readonly: @project.cannot_edit?(:repository)
     - if @project.persisted?
       = f.input :code_funded, as: :url, input_html: {class: "span9"}, readonly: @project.cannot_edit?(:code_funded)
-    = f.input :goal, required: true, input_html: {class: "span9", min: 10}, readonly: @project.cannot_edit?(:goal)
+    = f.input :goal, required: true, input_html: {class: "span9", min: 10, :"data-input-type" => "number",  :"data-input-number-min" => "10"}, readonly: @project.cannot_edit?(:goal)
 
-  = f.button :submit, t("project.submit.create"), class: "btn-primary"
+  = f.button :submit, t("project.submit.create"), class: "btn btn-large"

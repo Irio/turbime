@@ -31,7 +31,14 @@ en:
       title: Edit project
     show:
       needs_approval: "This project need be approved by our team."
+      backers: "backers"
+      pledged_of: "pledged of %{total} goal"
+      new_support: "Donate"
+      new_support_hint: "$5 USD minimail investiment"
+      new_support_title: "Back This Project"
   project:
+    funded: "Funded"
+    not_funded: "Not Funded"
     submit:
       create: Create project
       update: Update project
@@ -46,3 +53,7 @@ en:
           attributes:
             expires_at: "must be 1 week in the future."
             vimeo_regex_validation: "only Vimeo URLs are allowed"
+  number:
+    currency:
+      format:
+        precision: 0

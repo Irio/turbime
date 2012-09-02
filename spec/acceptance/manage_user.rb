@@ -4,7 +4,7 @@ feature "Manage user" do
 
   scenario "Create a profile using manual sign up" do
     visit "/"
-    click_on "SIGN UP"
+    click_on "Sign up"
     fill_in "Name", with: "Juquinha"
     fill_in "Email", with: "juquinha@turbi.me"
     fill_in "Password", with: "123123"
@@ -17,7 +17,7 @@ feature "Manage user" do
   scenario "Edit profile without fill github, twitter, facebook and site url" do
     auth_user
     visit "/"
-    click_on "PROFILE"
+    click_on "Profile"
 
     fill_in "Name", with: "Juquinha da Rocha"
     fill_in "Email", with: "juquinha@turbi.me"

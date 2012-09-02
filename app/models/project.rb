@@ -27,7 +27,6 @@ class Project < ActiveRecord::Base
     vimeo :width => 400, :height => 250
     redcarpet
     link :target => "_blank"
-    simple_format
   end
 
   def cannot_edit?(attr)
@@ -52,6 +51,20 @@ class Project < ActiveRecord::Base
 
   def successful?
     amount_reached >= goal
+  end
+
+  def days_left
+    days = (expires_at.to_date - Date.today).to_i
+    days > 0 ? days : 0
+  end
+
+  def percent
+    ((amount_reached / goal * 100).abs).round.to_i
+  end
+
+  def progress
+    return 100 if percent > 100
+    percent
   end
 
   protected

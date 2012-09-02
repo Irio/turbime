@@ -54,7 +54,7 @@ describe ProjectsController do
 
       it "signed in without project owner" do
         sign_in user_whitout_project
-        lambda { get :edit, id: project.id }.should raise_error(CanCan::AccessDenied)
+        lambda { get :edit, id: project.id }.should render_template(file: "#{Rails.root}/public/404.html")
       end
     end
     describe "update" do
@@ -66,7 +66,7 @@ describe ProjectsController do
 
       it "signed in without project owner" do
         sign_in user_whitout_project
-        lambda { put :update, id: project.id }.should raise_error(CanCan::AccessDenied)
+        lambda { put :update, id: project.id }.should render_template(file: "#{Rails.root}/public/404.html")
       end
     end
   end

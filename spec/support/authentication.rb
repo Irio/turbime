@@ -28,7 +28,7 @@ module AuthenticationHelpers
     auth_omniauth(provider, attrs)
 
     visit "/"
-    click_on "SIGN UP"
+    click_on "Sign up"
     click_on "Sign in with Facebook"
   end
 
@@ -36,7 +36,7 @@ module AuthenticationHelpers
     auth_omniauth(provider, attrs)
 
     visit "/"
-    click_on "LOGIN"
+    click_on "Login"
     click_on "Sign in with Facebook"
   end
 end

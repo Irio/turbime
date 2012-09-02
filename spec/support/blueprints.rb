@@ -31,4 +31,5 @@ Support.blueprint do
   user {User.make!}
   project {Project.make!}
   amount {100}
+  terms {"1"}
 end

@@ -34,7 +34,7 @@ describe SupportsController do
     end
 
     it "should assign current user id and project id on create a new support" do
-      post :create, project_id: project.id, support: { amount: 20 }
+      post :create, project_id: project.id, support: { amount: 20, terms: "1" }
       new_support = Support.last
       new_support.user.should == user
       new_support.project.should == project
