@@ -83,7 +83,7 @@ describe ProjectsController do
                               goal: project.goal,
                               video: project.video}
       new_porject = Project.last
-      response.should redirect_to(root_path)
+      response.should redirect_to(project_url(new_porject))
       new_porject.user.should == user
     end
   end
