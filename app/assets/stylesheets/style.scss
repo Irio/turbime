@@ -248,6 +248,49 @@ a#logo{
 		background: url("bg-footer.png") repeat center top;
 		width: 100%;
 		min-height: 286px;
+		padding-top: 50px;
+		.text, .devs li{
+			background: url("time.png") no-repeat;
+		}
+		.text{
+			background-position: -30px top;
+			height: 52px;
+			padding-left: 90px;
+			padding-top: 28px;
+			margin-top: 30px;
+		}
+		.devs{
+			margin-right: 20px;
+			ul{
+				min-height: 140px;
+			}
+			li{
+				display: block;
+				float: left;
+				width: 140px;
+				height: 140px;
+				&.irio{
+					background-position: center -155px;
+				}
+				&.josemar{
+					background-position: center -305px;
+				}
+				&.marcio{
+					background-position: center -456px;
+				}
+				&.sergio{
+					background-position: center -605px;
+				}
+				a{
+					width: 140px;
+					height: 140px;
+					display: inline-block;
+					span{
+						visibility: hidden;
+					}
+				}
+			}
+		}
 	}
 }
 #footer .pull-right li{
