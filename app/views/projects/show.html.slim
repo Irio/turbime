@@ -36,5 +36,4 @@ section
     = render 'share_social'
     .project-description
       = @project.description_html.html_safe
-    .comments
-      .fb-comments data-href="#{request.url.html_safe}" data-num-posts="5" data-width="940"
+    = render 'comments'
