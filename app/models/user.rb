@@ -17,7 +17,8 @@ class User < ActiveRecord::Base
       if data = session[:omniauth] && session[:omniauth]["info"]
         user.email = data["email"] if data["email"].present?
         user.name = data["name"]
-        data["image"] = data["image"].gsub('_normal', '') if session[:omniauth]['provider'] == 'twitter'
+        data["image"] = data["image"].sub('_normal', '') if session[:omniauth]['provider'] == 'twitter'
+        data["image"] = data["image"].sub('square', 'large') if session[:omniauth]['provider'] == 'facebook'
         user.image =  data["image"]
         user.authorizations.build(provider: session[:omniauth]['provider'], uid: session[:omniauth]['uid'])
       end
