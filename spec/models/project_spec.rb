@@ -72,6 +72,16 @@ describe Project do
       it "should return only expired projects" do
         Project.expired.should have(1).items
       end
+
+      it "orders by expires_at desc" do
+        user = User.make!
+        past_date = -2.month.from_now
+        project = Project.make expires_at: past_date, user: user
+        Delorean.time_travel_to("5 months ago") do
+          project.save
+        end
+        Project.last.should eql(project)
+      end
     end
 
     describe "active" do

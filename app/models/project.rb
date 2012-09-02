@@ -17,7 +17,7 @@ class Project < ActiveRecord::Base
 
   # Scopes
   scope :visible, where(visible: true).order("created_at DESC")
-  scope :expired, where("expires_at < current_timestamp").order("created_at DESC")
+  scope :expired, where("expires_at < current_timestamp").order("expires_at DESC")
   scope :active, lambda { visible - expired }
 
   auto_html_for :description do
