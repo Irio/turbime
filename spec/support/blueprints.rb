@@ -4,7 +4,7 @@ require 'machinist/active_record'
 
 User.blueprint do
   name {'Josemar Davi Luedke'}
-  email {'josemarluedke@gmail.com'}
+  email {"josemarluedke-#{sn}@gmail.com"}
   password {'josemar'}
   password_confirmation {'josemar'}
 end
@@ -25,4 +25,10 @@ Project.blueprint do
   expires_at {1.month.from_now}
   video {"http://vimeo.com/28220980"}
   visible {true}
+end
+
+Support.blueprint do
+  user {User.make!}
+  project {Project.make!}
+  amount {100}
 end
