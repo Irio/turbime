@@ -395,3 +395,13 @@ a#logo{
 		display: block;
 	}
 }
+#logo-footer{
+	display: block;
+	height: 34px;
+	width: 141px;
+	background: url("logo-footer.png") no-repeat center center;
+	margin-bottom: 10px;
+	span{
+		visibility: hidden;
+	}
+}
