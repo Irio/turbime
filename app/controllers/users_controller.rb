@@ -1,3 +1,3 @@
-#class UsersController < InheritedResources::Base
-  #actions :show
-#end
+class UsersController < InheritedResources::Base
+  actions :show
+end
