@@ -71,12 +71,12 @@ describe ProjectsController do
     end
   end
 
-  describe "#fix_user_id" do
+  describe "#assign_user_id" do
     before do
       sign_in user
     end
 
-    it "should fix user id on create a new project" do
+    it "should assign current user id on create a new project" do
       post :create, project: {name: project.name,
                               description: project.description,
                               headline: project.headline,
