@@ -38,7 +38,7 @@ en:
       backers: "backers"
       pledged_of: "pledged of %{total} goal"
       new_support: "Donate"
-      new_support_hint: "$5 USD minimail investiment"
+      new_support_hint: "USD 5 minimal investiment"
       new_support_title: "Back This Project"
   supports:
     success_callback:
