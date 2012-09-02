@@ -241,6 +241,15 @@ a#logo{
 	text-align: center;
 	margin: 0px;
 }
+#footer{
+	background: url("bg-footer-top.png") repeat-x center top;
+	padding-top: 24px;
+	.all{
+		background: url("bg-footer.png") repeat center top;
+		width: 100%;
+		min-height: 286px;
+	}
+}
 #footer .pull-right li{
 	display: inline;
 }
