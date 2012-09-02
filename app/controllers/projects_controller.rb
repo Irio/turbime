@@ -21,9 +21,9 @@ class ProjectsController < InheritedResources::Base
   def show
     @project = Project.find(params[:id])
     if @project.visible?
-      show!(@project)
+      show!
     else
-      redirect_to root_path, alert: t(".project_invisible")
+      redirect_to root_path
     end
   end
 
