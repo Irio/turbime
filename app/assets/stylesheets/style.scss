@@ -211,7 +211,7 @@ a#logo{
 	background: #EEE;
 	width: 300px;
 	float: left;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	padding-bottom: 10px;
 	.project-title{
 		background: $blue_ligth;
@@ -222,6 +222,7 @@ a#logo{
 		color: $black;
 	}
 	.description{
+    height: 112px;
 		padding: 10px 20px;
 	}
 	.progress{
