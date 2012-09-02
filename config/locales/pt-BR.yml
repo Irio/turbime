@@ -29,7 +29,8 @@ pt-BR:
     edit:
       title: Editar projeto
     show:
-      needs_approval: Esse projeto precisa ser aprovado pelo nosso time
+      needs_approval: Esse projeto precisa ser aprovado pelo nosso time.
+      user_project_needs_approval: Seu projeto precisa ser aprovado pelo nosso time.
   project:
     submit:
       create: Criar projeto

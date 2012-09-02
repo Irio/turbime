@@ -436,12 +436,12 @@ input{
 		}
 	}
 	&.project{
-		.pull-left.photo, .pull-left.photo img{
-			width: 620px;
+		.pull-left.video{
+			width: 640px;
 //			max-height: 360px;
 		}
 		.about{
-			width: 280px;
+			width: 260px;
 		}
 		.big{
 			font-size: 50px;
@@ -457,7 +457,7 @@ input{
 	margin: 10px 0px;
 }
 .donate-button{
-	width: 280px;
+	width: 260px;
 	height: 55px;
 	background: #87C442;
 	color: #333;

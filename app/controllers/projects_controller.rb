@@ -22,6 +22,9 @@ class ProjectsController < InheritedResources::Base
     @project = Project.find(params[:id])
     if @project.visible?
       show!
+    elsif @project.user == current_user
+      flash[:notice] = t('projects.show.user_project_needs_approval')
+      show!
     else
       redirect_to root_path, notice: t("projects.show.needs_approval")
     end
