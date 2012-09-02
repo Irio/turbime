@@ -1,8 +1,8 @@
 section.new_support
   .center
     h1.page-title
-      | Back: 
-      span = @project.name
+      | Backing: 
+      a = link_to @project.name, project_path(@project)
     .project
       .image.pull-left
         = image_tag @project.image

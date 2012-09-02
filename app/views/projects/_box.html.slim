@@ -1,20 +1,23 @@
 .show class="box#{" centered" if i % 3 == 1}" style="#{"clear: left" if i % 3 == 0}"
   div
     = link_to project_path(project) do
-      = image_tag project.image
-      h2.project-title = project.name
+      .img-overflow
+        = image_tag project.image, alt: project.name
+      h2.project-title = truncate project.name.upcase, length: 140
+      p.user_name = project.user.name.split(" ").first.titleize
       p.description
         = project.headline
-      .progress-text
-        span
-          strong
-            = project.days_left
-            |  #{t('days')}
-          | #{t('remaining').upcase}
-        span
-          strong
-            = project.percent
-            | %
-          | #{t('reached').upcase}
-      .progress.progress-success.progress-striped
-        .bar style="width: #{project.progress}%"
+      .bottom-content
+        .progress-text
+          span
+            strong
+              = project.days_left
+              |  #{t('days')}
+            | #{t('remaining').upcase}
+          span
+            strong
+              = project.percent
+              | %
+            | #{t('reached').upcase}
+        .progress.progress-success.progress-striped
+          .bar style="width: #{project.progress}%"

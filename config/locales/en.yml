@@ -25,7 +25,10 @@ en:
   users:
     sign_in:
       remember_me: Remember me
+    edit:
+      title: Edit profile
   projects:
+    title: Projects
     new:
       new_project: New project
     create:

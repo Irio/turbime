@@ -21,8 +21,11 @@ pt-BR:
   project_by: "A project by "
   users:
     sign_in:
-      remember_me: Lembrar      
+      remember_me: Lembrar
+    edit:
+      title: Editar perfil
   projects:
+    title: Projects
     new:
       new_project: Novo projeto
     edit:
