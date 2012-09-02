@@ -130,4 +130,10 @@ feature "Managing projects" do
     find('a#donate')['href'].should == "http://www.example.com#{new_project_support_path(project)}"
   end
 
+  scenario "Should have link project repository" do
+    user = auth_user
+    project = Project.make! visible: true, goal: 1000
+    visit project_path(project)
+    page.should have_css('.project-repository')
+  end
 end
