@@ -10,7 +10,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :code_funded
       t.float :goal
       t.datetime :expires_at
-      t.boolean :visible
+      t.boolean :visible, default: false
 
       t.timestamps
     end
