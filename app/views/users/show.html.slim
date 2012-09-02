@@ -15,6 +15,9 @@ section
           ul
             li.email
               = mail_to @user.email, @user.email, :target => '_blank'
+            - if @user.github
+              li.github
+                = link_to @user.github, @user.github, :target => '_blank'
             - if @user.facebook
               li.facebook
                 = link_to @user.facebook, @user.facebook, :target => '_blank'

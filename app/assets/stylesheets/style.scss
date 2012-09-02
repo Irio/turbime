@@ -204,10 +204,15 @@ a#logo{
 }
 .box-list .box img{
 	display: block;
-	max-width: 300px;
-	min-height: 120px;
+	max-width: none;
+	height: 220px;
 }
 .box-list .box{
+	.img-overflow{
+		width: 300px;
+		height: 200px;
+		overflow: hidden;
+	}
 	background: #EEE;
 	width: 300px;
 	float: left;
@@ -532,6 +537,35 @@ input{
 			font-size: 17px;
 			color: darken($gray, 30%);
 			line-height: 20px;
+		}
+		.social{
+			li{
+				height: 40px;
+				margin: 2px 0px;
+				a{
+					padding: 10px 0px;
+					line-height: 40px;
+					padding-left: 45px;
+					background-repeat: no-repeat;
+					background-position: left center;
+				}
+				&.email a{
+					background-image: url("web-mail.gif");
+					background-position: 3px center;
+				}
+				&.facebook a{
+					background-image: url("web-facebook.png");
+				}
+				&.twitter a{
+					background-image: url("web-twitter.png");
+				}
+				&.github a{
+					background-image: url("web-github.png");
+				}
+				&.site a{
+					background-image: url("web-rss.png");
+				}
+			}
 		}
 	}
 	&.project{
