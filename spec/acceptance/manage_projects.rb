@@ -20,7 +20,7 @@ feature "Managing projects" do
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
     EOF
     fill_in "Headline", with: "Lorem ipsum dolor sit amet"
-    fill_in "Video", with: "http://www.youtube.com/watch?v=QlTtSWYwdUk"
+    fill_in "Video", with: "http://vimeo.com/43439161"
     fill_in "Repository", with: "https://github.com/Irio/mymoip"
     fill_in "Code funded", with: "https://github.com/Irio/mymoip/tree/v0.1.0"
     fill_in "Goal", with: "10.00"
@@ -62,5 +62,18 @@ feature "Managing projects" do
     Project.make! visible: false, name: "You are not viewing this."
     visit "/"
     page.should_not have_content("You are not viewing this.")
+  end
+
+  scenario "Allow guests to access project pages" do
+    Project.make! visible: true, name: "Lorem", description: "Ipsus Literus"
+    visit "/"
+    click_on "Lorem"
+    page.should have_content("Ipsus Literus")
+  end
+
+  scenario "Redirect user to home when trying to access invisible project" do
+    project = Project.make! visible: false
+    visit project_path(project)
+    page.should have_content("Start your project")
   end
 end
