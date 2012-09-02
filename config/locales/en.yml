@@ -40,6 +40,10 @@ en:
       new_support: "Donate"
       new_support_hint: "$5 USD minimail investiment"
       new_support_title: "Back This Project"
+  supports:
+    success_callback:
+      successful_payment: "Your payment was processed. Thanks for your support."
+      canceled_payment: "Sorry, your support wasn't confirmed."
   project:
     funded: "Funded"
     not_funded: "Not Funded"

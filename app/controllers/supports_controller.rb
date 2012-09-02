@@ -34,14 +34,14 @@ class SupportsController < InheritedResources::Base
 
       support.confirm!
       support.update_attributes(transaction_id: payment.identifier)
-      redirect_to root_url, notice: t(".successful_payment")
+      redirect_to root_url, notice: t(".supports.success_callback.successful_payment")
     else
       render nothing: true, status: :unprocessable_entity
     end
   end
 
   def cancel_callback
-    redirect_to root_url, notice: t(".canceled_payment")
+    redirect_to root_url, notice: t(".supports.success_callback.canceled_payment")
   end
 
   protected
