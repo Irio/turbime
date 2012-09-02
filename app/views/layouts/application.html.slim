@@ -71,24 +71,25 @@ html
       = yield
 
     footer#footer
-      .center
-        .pull-left
-          | Desenvolvido por 
-          = link_to "Irio", "https://github.com/Irio", target: "_blank"
-          | , 
-          = link_to "Josemar", "https://github.com/josemarluedke", target: "_blank"
-          | , 
-          = link_to "Marcio", "https://github.com/marciomarques", target: "_blank"
-          |  e 
-          = link_to "Sérgio", "https://github.com/ssjr", target: "_blank"
-        .pull-right
-          ul
-            li
-              a href="#" target="_blank" Facebook
-            li
-              a href="#" target="_blank" Twitter
-          = link_to "http://startupideias.com.br/", id: "logo-footer", target: "_blank" do
-            span STARTUPIDEIAS
+      .all
+        .center
+          .pull-left
+            | Desenvolvido por 
+            = link_to "Irio", "https://github.com/Irio", target: "_blank"
+            | , 
+            = link_to "Josemar", "https://github.com/josemarluedke", target: "_blank"
+            | , 
+            = link_to "Marcio", "https://github.com/marciomarques", target: "_blank"
+            |  e 
+            = link_to "Sérgio", "https://github.com/ssjr", target: "_blank"
+          .pull-right
+            ul
+              li
+                a href="#" target="_blank" Facebook
+              li
+                a href="#" target="_blank" Twitter
+            = link_to "http://startupideias.com.br/", id: "logo-footer", target: "_blank" do
+              span STARTUPIDEIAS
+            .clear
           .clear
-        .clear
     = javascript_include_tag "application"
