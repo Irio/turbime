@@ -9,6 +9,32 @@ $black: #000;
 	-moz-border-radius: $radius;
 	border-radius: $radius;
 }
+@mixin btn_success{
+	  color: #ffffff;
+	  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	  background-color: #5bb75b;
+	  background-image: -moz-linear-gradient(top, #62c462, #51a351);
+	  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+	  background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+	  background-image: -o-linear-gradient(top, #62c462, #51a351);
+	  background-image: linear-gradient(to bottom, #62c462, #51a351);
+	  background-repeat: repeat-x;
+	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462', endColorstr='#ff51a351', GradientType=0);
+	  border-color: #51a351 #51a351 #387038;
+	  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	  *background-color: #51a351;
+	  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+	  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	&:hover, &:active, &.active, &.disabled, &[disabled] {
+	  color: #ffffff;
+	  background-color: #51a351;
+	  *background-color: #499249;
+	}
+	&:active, &.active {
+	  background-color: #408140;
+	}	
+}
 a, a:hover, a:focus{
 	text-decoration: none;
 }
@@ -300,6 +326,23 @@ a#logo{
 		margin-left: 4px;
 	}
 }
+.sign_box, .edit_profile{
+	.modal-footer{
+		background: darken($white, 10%);
+		border: 1px solid darken($white, 20%);
+		box-shadow: none;
+		border-radius: 0px;
+		text-align: center;
+		.submit{
+			min-width: 460px;
+		}
+		.btn-success{
+			border-width: 0px;
+			box-shadow: none;
+			@include btn_success;
+		}
+	}
+}
 .sign_box{
 	.modal-body{
 		width: 460px;
@@ -314,28 +357,43 @@ a#logo{
 		.input-prepend input{
 			width: 420px;
 		}
-		// registro
-		input{
-			&.checkbox{
-				width: auto;
-			}
-			&#user_name, &.password, &.email{
-				background: url("icons-forms.png") no-repeat left top;
-				width: 400px;
-				padding-left: 45px;
-				padding-right: 8px;
-				margin-left: 2px;
-			}
-			&#user_name{
-				background-position: 3px 9px;
-			}
-			&.password{
-				background-position: 4px -190px;
-			}
-			&.email{
-				background-position: 5px -89px;
-			}
+	}
+}
+input{
+	&.checkbox{
+		width: auto;
+	}
+	&#user_name, &.password, &.email{
+		background: url("icons-forms.png") no-repeat left top;
+		width: 400px;
+		padding-left: 45px;
+		padding-right: 8px;
+		margin-left: 2px;
+	}
+	&#user_name{
+		background-position: 3px 9px;
+	}
+	&.password{
+		background-position: 4px -190px;
+	}
+	&.email{
+		background-position: 5px -89px;
+	}
+}
+.edit_profile{
+	input{
+		width: 922px;
+		&#user_name, &.password, &.email{
+			width: 881px;
+			padding-left: 45px;
 		}
+		&.submit{
+			width: auto;
+			width: 240px;
+		}
+	}
+	form p{
+		margin-left: 3px;
 	}
 }
 .provider.login-btn{

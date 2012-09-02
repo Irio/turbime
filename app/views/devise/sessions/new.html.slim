@@ -11,8 +11,8 @@
 
         = f.input :password, :required => true
 
-        = f.input_field :remember_me, inline_label: "aa", class: "checkbox", :as => :boolean if devise_mapping.rememberable?
-      .model-footer
-        = f.button :submit, t(".sign_in"), class: "btn"
+        = f.input_field :remember_me, inline_label: t('users.sign_in.remember_me'), class: "checkbox", :as => :boolean if devise_mapping.rememberable?
+      .modal-footer
+        = f.button :submit, t(".sign_in"), class: "btn submit btn-large btn-success"
       .links
       = render "devise/shared/links"
