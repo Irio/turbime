@@ -18,6 +18,7 @@ pt-BR:
   sign_in: Login
   sign_up: Cadastro
   sign_out: Sair
+  only_numbers: Apenas números
   projects:
     new:
       new_project: Novo projeto
