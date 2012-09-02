@@ -33,7 +33,7 @@ $black: #000;
 	}
 	&:active, &.active {
 	  background-color: #408140;
-	}	
+	}
 }
 a, a:hover, a:focus{
 	text-decoration: none;
@@ -190,7 +190,7 @@ a#logo{
 	background-position: 10px 20px;
 }
 #header-discover{
-	
+
 }
 #header-start{
 	background-position: 8px -49px;
@@ -317,10 +317,11 @@ a#logo{
 				font-size: 30px;
 				padding: 20px 30px;
 				margin-top: 80px;
+				display: block;
 			}
 		}
 		> .pull-right{
-		
+
 		}
 	}
 }
@@ -379,25 +380,32 @@ a#logo{
 	}
 }
 .sign_box, .edit_profile{
+	.links{
+		text-align: center;
+		margin-bottom: 100px;
+		margin-top: 20px;
+	}
 	.modal-footer{
-		background: darken($white, 10%);
-		border: 1px solid darken($white, 20%);
+		background: $white;
+		border: 0px;
 		box-shadow: none;
 		border-radius: 0px;
+		padding: 0px;
 		text-align: center;
-		.submit{
+		.btn-large{
 			min-width: 460px;
+			padding: 15px 5px;
 		}
-		.btn-success{
-			border-width: 0px;
-			box-shadow: none;
-			@include btn_success;
-		}
+//		.btn-success{
+//			border-width: 0px;
+//			box-shadow: none;
+//			@include btn_success;
+//		}
 	}
 }
 .sign_box{
 	.modal-body{
-		width: 460px;
+		width: 465px;
 		.add-on{
 			margin: 0px;
 			padding: 15px 5px;
@@ -409,26 +417,30 @@ a#logo{
 		.input-prepend input{
 			width: 420px;
 		}
+		p{
+			margin-left: 3px;
+		}
 	}
 }
 input{
-	&.checkbox{
+	&.checkbox, &#user_remember_me{
 		width: auto;
 	}
-	&#user_name, &.password, &.email{
+	&#user_name, &.password, &.email, &#user_email, &#user_password, &#user_password_confirmation{
 		background: url("icons-forms.png") no-repeat left top;
 		width: 400px;
 		padding-left: 45px;
 		padding-right: 8px;
 		margin-left: 2px;
+    font-size: 20px;
 	}
 	&#user_name{
 		background-position: 3px 9px;
 	}
-	&.password{
+	&.password, &#user_password, &#user_password_confirmation{
 		background-position: 4px -190px;
 	}
-	&.email{
+	&.email, &#user_email{
 		background-position: 5px -89px;
 	}
 }
@@ -514,7 +526,7 @@ input{
 	background: #87C442;
 	color: #333;
 	line-height: 20px;
-	padding-top: 10px; /* revisar */ 
+	padding-top: 10px; /* revisar */
 	margin-bottom: 10px;
 	vertical-align: baseline;
 	border-radius: 5px;
