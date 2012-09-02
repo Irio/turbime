@@ -140,6 +140,9 @@ a#logo{
 #header li{
 	display: inline;
 }
+#header nav ul{
+	background: url("ul-bg.png") no-repeat 155px 7px;
+}
 #header nav a{
 	line-height: 22px;
 	font-weight: bold;
@@ -206,7 +209,7 @@ a#logo{
 	}
 }
 .box-list .box.centered{
-	margin: 0px 20px;
+	margin: 0px 20px 10px 20px;
 }
 .box-list .box .link{
 	text-align: center;
@@ -294,6 +297,7 @@ a#logo{
 	label{
 		color: $gray;
 		margin-bottom: 8px;
+		margin-left: 4px;
 	}
 }
 .sign_box{
@@ -309,6 +313,28 @@ a#logo{
 		}
 		.input-prepend input{
 			width: 420px;
+		}
+		// registro
+		input{
+			&.checkbox{
+				width: auto;
+			}
+			&#user_name, &.password, &.email{
+				background: url("icons-forms.png") no-repeat left top;
+				width: 400px;
+				padding-left: 45px;
+				padding-right: 8px;
+				margin-left: 2px;
+			}
+			&#user_name{
+				background-position: 3px 9px;
+			}
+			&.password{
+				background-position: 4px -190px;
+			}
+			&.email{
+				background-position: 5px -89px;
+			}
 		}
 	}
 }
@@ -415,4 +441,7 @@ a#logo{
 	span{
 		visibility: hidden;
 	}
+}
+input, input[type=text], input[type=number], input[type=password]{
+	padding: 15px 5px;
 }
