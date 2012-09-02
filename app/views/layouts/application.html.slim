@@ -9,6 +9,7 @@ html
       = content_for?(:title) ? "#{yield(:title)} - Turbi.me" : "Turbi.me"
     = stylesheet_link_tag "application", "http://fonts.googleapis.com/css?family=Sansita+One|Kameron:400,700"
     = javascript_include_tag "application"
+    meta[name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"]
     = yield(:meta_tags)
     = csrf_meta_tag
     = render "layouts/analytics"
@@ -73,4 +74,3 @@ html
                   span Sérgio
             .clear
           .clear
-    
