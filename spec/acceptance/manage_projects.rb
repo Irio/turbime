@@ -53,9 +53,7 @@ feature "Managing projects" do
   scenario "Guests cannot edit projects" do
     subject = Project.make!
     visit edit_project_path(subject)
-    page.should have_content("Sign in")
-
-    # TODO: Rescue CanCan expections
+    page.should have_content("401")
   end
 
   scenario "Index must not show invisible projects" do
@@ -75,5 +73,12 @@ feature "Managing projects" do
     project = Project.make! visible: false
     visit project_path(project)
     page.should have_content("Start your project")
+  end
+
+  scenario "Code funded input must not appear when creating a project" do
+    user = auth_user
+    visit "/"
+    click_on "Start your project"
+    page.should have_no_css("input#project_code_funded")
   end
 end
