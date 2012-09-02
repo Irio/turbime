@@ -17,7 +17,13 @@ class User < ActiveRecord::Base
       if data = session[:omniauth] && session[:omniauth]["info"]
         user.email = data["email"] if data["email"].present?
         user.name = data["name"]
-        user.image = data["image"]
+        image = data["image"]
+        if session[:omniauth]['provider'] =~ /facebook/
+          image = "#{image}?type=large"
+        elsif session[:omniauth]['provider'] =~ /twitter/
+          image = data["image"].sub('_mormal', '')
+        end
+        user.image = image
         user.authorizations.build(provider: session[:omniauth]['provider'], uid: session[:omniauth]['uid'])
       end
     end
@@ -25,6 +31,6 @@ class User < ActiveRecord::Base
 
   def avatar_url
     return image if image
-    "http://gravatar.com/avatar/#{Digest::MD5.new.update(email)}.jpg?s=50"
+    "http://gravatar.com/avatar/#{Digest::MD5.new.update(email)}.jpg?s=400"
   end
 end
