@@ -195,6 +195,9 @@ a#logo{
 #header-start{
 	background-position: 8px -49px;
 }
+[data-controller-name=Users] .box-list{
+  margin-top: 20px;
+}
 .box-list .box img{
 	display: block;
 	max-width: 300px;
@@ -548,13 +551,13 @@ input{
 	&.not_successful{
 		background: red;
 		a{
-			
+
 		}
 	}
 	&.successful{
 		background: black;
 		a{
-			
+
 		}
 	}
 }
