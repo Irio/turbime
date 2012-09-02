@@ -28,6 +28,8 @@ en:
       needs_approval: "Your project will be approved by our team."
     edit:
       title: Edit project
+    show:
+      needs_approval: "This project need be approved by our team."
   project:
     submit:
       create: Create project

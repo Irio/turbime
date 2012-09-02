@@ -23,7 +23,7 @@ class ProjectsController < InheritedResources::Base
     if @project.visible?
       show!
     else
-      redirect_to root_path
+      redirect_to root_path, notice: t("projects.show.needs_approval")
     end
   end
 
