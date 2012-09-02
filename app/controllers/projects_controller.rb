@@ -13,7 +13,7 @@ class ProjectsController < InheritedResources::Base
   def create
     create! do |success, failure|
       success.html do
-        redirect_to root_path, notice: t("projects.create.needs_approval")
+        redirect_to project_path(@project), notice: t("projects.create.needs_approval")
       end
     end
   end

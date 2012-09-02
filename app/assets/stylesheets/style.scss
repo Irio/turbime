@@ -246,7 +246,7 @@ a#logo{
 }
 .home-intro{
 	background: url("black_bg.png");
-	min-height: 400px;
+	min-height: 315px;
 	padding: 50px 0px 10px 0px;
 	color: $white;
 	h1{
@@ -262,6 +262,7 @@ a#logo{
 			.btn{
 				font-size: 30px;
 				padding: 20px 30px;
+				margin-top: 80px;
 			}
 		}
 		> .pull-right{
@@ -270,7 +271,12 @@ a#logo{
 	}
 }
 #home_steps{
-	margin: 0 0 44px -9px;
+	margin-top: 50px;
+	.title{
+		font-size: 40px;
+		margin-bottom: 30px;
+		color: $blue_ligth;
+	}
 }
 #home_steps ul{
 	list-style-type: none;
@@ -281,37 +287,29 @@ a#logo{
 		span{
 			font-size: 24px;
 			font-weight: bold;
-			margin-left: 90px;
+//			margin-left: 90px;
 			&.span1.title{
 				font-size: 106px;
+				background: url("works.png") no-repeat center 2px;
 				position: relative;
 				width: 80px;
+				height: 80px;
 				text-align: center;
 				margin: 0;
-				top: 54px;
+				padding-top: 38px;
 				color: $blue_ligth;
+				&.step2{background-position: center -118px;}
+				&.step3{background-position: center -238px;}
 			}
 			&.span1{
-				line-height: 25px;
+				line-height: 18px;
+				font-size: 16px;
+				padding-top: 17px;
 				width: 200px;
 			}
 		}
 		&.span3, .span3{
 			margin: 0;
-		}
-	}
-	hr.vertical{
-		background: url("linha-vertical.png") repeat scroll 0 0 transparent;
-		height: 75px;
-		margin: 0;
-		position: absolute;
-		top: -25px;
-		width: 1px;
-		&.left{
-			left: 0;
-		}
-		&.right{
-			right: 0;
 		}
 	}
 }
