@@ -19,6 +19,10 @@ pt-BR:
   sign_up: Cadastro
   sign_out: Sair
   only_numbers: Apenas números
+  project_by: "A project by "
+  users:
+    sign_in:
+      remember_me: Lembrar      
   projects:
     new:
       new_project: Novo projeto
