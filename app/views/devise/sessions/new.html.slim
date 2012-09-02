@@ -13,6 +13,6 @@
 
         = f.input_field :remember_me, inline_label: t('users.sign_in.remember_me'), class: "checkbox", :as => :boolean if devise_mapping.rememberable?
       .modal-footer
-        = f.button :submit, t(".sign_in"), class: "btn submit btn-large btn-success"
+        = f.button :submit, t(".sign_in"), class: "btn btn-large"
       .links
-      = render "devise/shared/links"
+        = render "devise/shared/links"
