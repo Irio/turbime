@@ -1,3 +1,5 @@
+Turbi::Application::HOST = "http://startup_ideias.webbynode.us"
+
 Turbi::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
