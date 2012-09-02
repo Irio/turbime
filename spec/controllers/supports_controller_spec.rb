@@ -48,7 +48,7 @@ describe SupportsController do
     it "initializes a new payment" do
       Payment.should_receive(:new).with(20).and_return(double.as_null_object)
       Payment.any_instance.stub(:redirect_uri).and_return("http://turbi.me/")
-      post :create, project_id: project.id, support: { amount: 20 }
+      post :create, project_id: project.id, support: { amount: 20, terms: "1" }
     end
 =end
 
@@ -58,7 +58,15 @@ describe SupportsController do
       Payment.any_instance.stub(:redirect_uri).and_return("http://turbi.me/")
 
       Payment.any_instance.should_receive(:setup!).with("http://success", "http://cancel").and_return(true)
-      post :create, project_id: project.id, support: { amount: 20 }
+      post :create, project_id: project.id, support: { amount: 20, terms: "1" }
+    end
+
+    it "updates support's payment_token" do
+      Payment.any_instance.stub(:new).and_return(double.as_null_object)
+      Payment.any_instance.stub(:token).and_return("big_payment_token")
+      Payment.any_instance.stub(:redirect_uri).and_return(root_url)
+      post :create, project_id: project.id, support: { amount: 20, terms: "1" }
+      assigns(:support).payment_token.should eql("big_payment_token")
     end
   end
 end

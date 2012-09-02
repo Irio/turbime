@@ -11,9 +11,10 @@ class SupportsController < InheritedResources::Base
     create! do |format|
       payment = Payment.new resource.amount
       payment.setup!(
-        success_callback_project_support_url(resource.project, resource),
-        cancel_callback_project_support_url(resource.project, resource)
+        success_callback_project_support_url(resource.project.id, resource.id),
+        cancel_callback_project_support_url(resource.project.id, resource.id)
       )
+      @support.update_attributes(payment_token: payment.token)
 
       format.html { redirect_to payment.redirect_uri }
     end

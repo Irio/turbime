@@ -6,7 +6,7 @@ class Support < ActiveRecord::Base
   validates :amount, numericality: { greater_than_or_equal_to: 5.00 }
   validates :terms, acceptance: {:accept => "1"}, allow_nil: false
   attr_protected :confirmed
-  before_validation :create_payment_token, only: [:create]
+  before_validation :create_payment_token, only: [:create], if: lambda { |s| s.new_record? }
 
   # Scopes
   scope :confirmed, where(confirmed: true)
