@@ -43,8 +43,9 @@ section
         - if @project.code_funded.present?
           .project-code_funded.span5.btn
             = link_to @project.code_funded.gsub(/http(s)?:\/\//, ''), @project.code_funded
-        .project-repository.span5.offset1
-          = link_to @project.repository.gsub(/http(s)?:\/\//, ''), @project.repository
+        - if @project.repository.present?
+          .project-repository.span5.offset1
+            = link_to @project.repository.gsub(/http(s)?:\/\//, ''), @project.repository
 
     .project-description
       = @project.description_html.html_safe
