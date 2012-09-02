@@ -244,6 +244,7 @@ a#logo{
 #footer{
 	background: url("bg-footer-top.png") repeat-x center top;
 	padding-top: 24px;
+	margin-top: 20px;
 	.all{
 		background: url("bg-footer.png") repeat center top;
 		width: 100%;
@@ -299,6 +300,7 @@ a#logo{
 .home-intro{
 	background: url("black_bg.png");
 	min-height: 315px;
+	margin-bottom: 20px;
 	padding: 50px 0px 10px 0px;
 	color: $white;
 	h1{
