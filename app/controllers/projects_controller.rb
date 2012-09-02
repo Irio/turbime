@@ -2,7 +2,7 @@ class ProjectsController < InheritedResources::Base
   actions :all, except: [:destroy]
   load_and_authorize_resource only: [:edit, :update]
 
-  before_filter :authenticate_user!, except: [:index]
+  before_filter :authenticate_user!, except: [:index, :show]
   before_filter :assign_user_id, only: [:create]
 
   def index
@@ -11,7 +11,20 @@ class ProjectsController < InheritedResources::Base
   end
 
   def create
-    create!(warning: "Your project will be approved by our team.")
+    create! do |success, failure|
+      success.html do
+        redirect_to root_path, notice: t("projects.create.needs_approval")
+      end
+    end
+  end
+
+  def show
+    @project = Project.find(params[:id])
+    if @project.visible?
+      show!(@project)
+    else
+      redirect_to root_path, alert: t(".project_invisible")
+    end
   end
 
   def update

@@ -24,6 +24,8 @@ en:
   projects:
     new:
       new_project: New project
+    create:
+      needs_approval: "Your project will be approved by our team."
   project:
     submit:
       create: Create project
