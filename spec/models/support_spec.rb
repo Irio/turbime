@@ -11,4 +11,13 @@ describe Support do
     it { should belong_to :user }
     it { should belong_to :project }
   end
+
+  describe "#confirm!" do
+    let(:support) { Support.make! confirmed: false }
+    it "should set true in confirm field" do
+      support.confirm!
+      support.reload
+      support.confirmed.should == true
+    end
+  end
 end

@@ -21,6 +21,7 @@ en:
   sign_in: Login
   sign_up: Sign up
   sign_out: Logout
+  only_numbers: Only numbers
   projects:
     new:
       new_project: New project

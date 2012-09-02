@@ -125,7 +125,6 @@ describe Project do
     end
   end
 
-
   describe "#cannot_edit?" do
     let(:persisted) { Project.make! }
 
@@ -170,6 +169,62 @@ describe Project do
 
     it "cannot edit goal when persisted" do
       persisted.cannot_edit?(:goal).should be_true
+    end
+  end
+
+  describe "#amount_reached" do
+    let(:user) { User.make! }
+    let(:project) { Project.make! user: user }
+    5.times { |i| let(:"support_#{i}") { Support.make! user: user, project: project, amount: 100 } }
+
+    it "sum should calculate project total amount reached" do
+      support_1.confirm!
+      support_2.confirm!
+      support_3.confirm!
+      project.amount_reached.should == 300.0
+    end
+  end
+
+  describe "#visible?" do
+    let(:user) { User.make! }
+    it "should returns true if project is visible" do
+      project_visible = Project.make! user: user, visible: true
+      project_not_visible = Project.make! user: user, visible: false
+
+      project_visible.visible?.should == true
+      project_not_visible.visible?.should == false
+    end
+  end
+
+  describe "#active?" do
+    let(:user) { User.make! }
+    it "should returns true if project is visible" do
+      past_date = -1.month.from_now
+      Delorean.time_travel_to("2 months ago") do
+        @project_active = Project.make! user: user, visible: true, expires_at: 3.month.from_now
+        @project_not_active = Project.make! user: user, visible: true, expires_at: past_date
+      end
+
+      Project.active.should include(@project_active)
+      Project.active.should_not include(@project_not_active)
+    end
+  end
+
+  describe "#successful?" do
+    let(:user) { User.make! }
+    let(:project) { Project.make! user: user, goal: 1000 }
+    let(:project_2) { Project.make! user: user, goal: 1200 }
+    before do
+      @user = user
+      10.times { |i| Support.make!(user: @user, project: project, amount: 100).confirm! }
+      3.times { |i| Support.make!(user: @user, project: project_2, amount: 100).confirm! }
+    end
+    it "should return true if amount is reached" do
+      project.should be_successful
+    end
+
+    it "should return false if amount is not reached" do
+      project_2.should_not be_successful
     end
   end
 end

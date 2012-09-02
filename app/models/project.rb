@@ -35,7 +35,23 @@ class Project < ActiveRecord::Base
   end
 
   def visible?
-    self.class.visible.include? self
+    visible
+  end
+
+  def amount_reached
+    supports.confirmed.sum(&:amount)
+  end
+
+  def active?
+    visible? and not expired?
+  end
+
+  def expired?
+    expires_at < Time.now
+  end
+
+  def successful?
+    amount_reached >= goal
   end
 
   protected
