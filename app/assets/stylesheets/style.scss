@@ -3,6 +3,9 @@ $blue_ligth: #4FD8FF;
 $white: #FFF;
 $gray: #CCC;
 $black: #000;
+$red: #cc1529;
+$green: #59aF6d;
+
 @mixin radius($radius: 4px){
 	-webkit-border-radius: $radius;
 	-ms-border-radius: $radius;
@@ -548,13 +551,13 @@ input{
 	&.not_successful{
 		background: red;
 		a{
-			
+
 		}
 	}
 	&.successful{
 		background: black;
 		a{
-			
+
 		}
 	}
 }
@@ -581,4 +584,25 @@ input{
 }
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{
 	padding: 15px 5px;
+}
+
+.flash {
+  font-family: 'Kameron', Georgia, serif;
+  font-size: 1.6em;
+  color: white;
+  display: none;
+  z-index: 500;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  .wrapper{
+    padding: 20px;
+  }
+  .success.wrapper, .notice.wrapper{
+    background-color: $green;
+  }
+  .failure.wrapper, .error.wrapper, .alert.wrapper{
+    background-color: $red;
+  }
 }
