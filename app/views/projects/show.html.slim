@@ -39,12 +39,13 @@ section
     = render 'share_social'
 
     - if @project.repository.present? || @project.code_funded.present?
-      .project-links.row
+      .project-links
         - if @project.code_funded.present?
           .project-code_funded.span5.btn
             = link_to @project.code_funded.gsub(/http(s)?:\/\//, ''), @project.code_funded
         - if @project.repository.present?
-          .project-repository.span5.offset1
+          .project-repository[class="#{@project.code_funded? ? 'span5 offset1' : 'span9 offset1'}"]
+            = image_tag "web-github.png"
             = link_to @project.repository.gsub(/http(s)?:\/\//, ''), @project.repository
 
     .project-description
