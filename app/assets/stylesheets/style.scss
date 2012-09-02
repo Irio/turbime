@@ -212,14 +212,34 @@ a#logo{
 	width: 300px;
 	float: left;
 	margin-bottom: 20px;
-	padding-bottom: 10px;
+	position: relative;
+	min-height: 530px;
 	.project-title{
 		background: $blue_ligth;
+		font-size: 20px;
 		padding: 10px 20px;
 		color: $white;
 	}
 	a{
 		color: $black;
+	}
+	.bottom-content{
+		position: absolute;
+		bottom: 0;
+		width: 300px;
+		padding-bottom: 10px;
+	}
+	.user_name{
+		color: $blue;
+		font-size: 13px;
+		font-weight: bold;
+		padding: 6px 10px;
+		margin: 0px;
+		position: absolute;
+		top: 130px;
+		right: 0px;
+		background-color: $black;
+		background: rgba(0,0,0,0.8);
 	}
 	.description{
     height: 112px;
