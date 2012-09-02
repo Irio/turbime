@@ -24,6 +24,8 @@ en:
   projects:
     new:
       new_project: New project
+    edit:
+      title: Edit project
   project:
     submit:
       create: Create project
