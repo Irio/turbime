@@ -8,23 +8,14 @@ html
     title
       = content_for?(:title) ? "#{yield(:title)} - Turbi.me" : "Turbi.me"
     = stylesheet_link_tag "application", "http://fonts.googleapis.com/css?family=Sansita+One|Kameron:400,700"
-    meta[name="description" content=""]
-    meta[name="keywords" content=""]
-    meta[name="author" content=""]
+    = javascript_include_tag "application"
     = yield(:meta_tags)
     = csrf_meta_tag
     = render "layouts/analytics"
 
   body data-controller-class=controller.class.name data-controller-name=controller.controller_name.camelize data-action=controller.action_name.camelize
-    #fb-root
-    javascript:
-      (function(d, s, id) {
-      	var js, fjs = d.getElementsByTagName(s)[0];
-      	if (d.getElementById(id)) return;
-      	js = d.createElement(s); js.id = id;
-      	js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=359832334092122";
-      	fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+    = render 'layouts/facebook_sdk'
+    = render 'layouts/flash', flash: flash if flash.present?
     header#header
       .center
         a#logo href="/"
@@ -59,17 +50,8 @@ html
                   = link_to t('sign_in'), new_user_session_path
         .clear
       .clear
-
     section#content
-      .center
-        - unless flash[:error].nil?
-          .error = flash[:error]
-        - unless flash[:notice].nil?
-          .notice = flash[:notice]
-        - unless flash[:warning].nil?
-          .warning = flash[:warning]
       = yield
-
     footer#footer
       .all
         .center
@@ -91,4 +73,4 @@ html
                   span Sérgio
             .clear
           .clear
-    = javascript_include_tag "application"
+    
