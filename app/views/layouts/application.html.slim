@@ -6,7 +6,7 @@ html
     meta[charset="utf-8"]
     meta[http-equiv="Content-Type" content="text/html;charset=utf-8"]
     title
-      = content_for?(:title) ? "#{yield(:title)} Turbi.me" : "Turbi.me"
+      = content_for?(:title) ? "#{yield(:title)} - Turbi.me" : "Turbi.me"
     = stylesheet_link_tag "application", "http://fonts.googleapis.com/css?family=Sansita+One|Kameron:400,700"
     meta[name="description" content=""]
     meta[name="keywords" content=""]
@@ -43,14 +43,14 @@ html
           .pull-right
             ul.share
               li
-                a.facebook href="#" target="_blank"
+                a.facebook href="http://facebook.com/turbime" target="_blank"
                   span Facebook
               li
                 a.twitter href="http://twitter.com/turbime" target="_blank"
                   span Twitter
               - if user_signed_in?
                 li
-                  = link_to t('profile'), edit_user_registration_path
+                  = link_to t('profile'), user_path(current_user)
                   = link_to t('sign_out'), destroy_user_session_path, method: :delete
               - else
                 li

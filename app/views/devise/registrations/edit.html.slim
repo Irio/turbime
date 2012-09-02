@@ -20,8 +20,6 @@
                   = link_to t(".connect_your_provider", provider_name: provider_name.to_s.titleize), omniauth_authorize_path(resource_name, provider_name) unless provider.present?
                   = link_to t(".disconnect_from_provider", provider_name: provider_name.to_s.titleize), authorization_path(provider), method: :delete if provider.present?
 
-
-
   .row.edit_profile
     .span12
       = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
@@ -37,17 +35,15 @@
 
           = f.input :current_password, :required => true, input_html: {class: "span12", style: "margin-left: 3px;"}
 
-          = f.input :github, :wrapper => :prepend do
-            = f.url_field :github, class: "span12", style: "margin-left: 3px;"
+          = f.input :github, class: "span12", style: "margin-left: 3px;"
 
-          = f.input :twitter, :wrapper => :prepend do
-            = f.url_field :twitter, class: "span12", style: "margin-left: 3px;"
+          = f.input :twitter, class: "span12", style: "margin-left: 3px;"
 
-          = f.input :facebook, :wrapper => :prepend do
-            = f.url_field :facebook, class: "span12", style: "margin-left: 3px;"
+          = f.input :facebook, class: "span12", style: "margin-left: 3px;"
 
-          = f.input :site, :wrapper => :prepend do
-            = f.url_field :site, class: "span12", style: "margin-left: 3px;"
+          = f.input :site, class: "span12", style: "margin-left: 3px;"
+
+          = f.input :bio, class: "span12", style: "margin-left: 3px;"
 
         .modal-footer
           = f.button :submit, t(".update"), class: "btn btn-large", style: "width: 935px"

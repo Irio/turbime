@@ -33,7 +33,7 @@ $black: #000;
 	}
 	&:active, &.active {
 	  background-color: #408140;
-	}	
+	}
 }
 a, a:hover, a:focus{
 	text-decoration: none;
@@ -190,7 +190,7 @@ a#logo{
 	background-position: 10px 20px;
 }
 #header-discover{
-	
+
 }
 #header-start{
 	background-position: 8px -49px;
@@ -321,7 +321,7 @@ a#logo{
 			}
 		}
 		> .pull-right{
-		
+
 		}
 	}
 }
@@ -432,6 +432,7 @@ input{
 		padding-left: 45px;
 		padding-right: 8px;
 		margin-left: 2px;
+    font-size: 20px;
 	}
 	&#user_name{
 		background-position: 3px 9px;
@@ -528,7 +529,7 @@ input{
 	background: #87C442;
 	color: #333;
 	line-height: 20px;
-	padding-top: 10px; /* revisar */ 
+	padding-top: 10px; /* revisar */
 	margin-bottom: 10px;
 	vertical-align: baseline;
 	border-radius: 5px;
