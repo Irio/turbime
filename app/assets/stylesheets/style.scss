@@ -140,6 +140,9 @@ a#logo{
 #header li{
 	display: inline;
 }
+#header nav ul{
+	background: url("ul-bg.png") no-repeat 155px 7px;
+}
 #header nav a{
 	line-height: 22px;
 	font-weight: bold;
