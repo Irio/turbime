@@ -5,7 +5,7 @@
     = f.input :expires_at, required: true, input_html: {style: "width: auto"}, start_year: Date.today.year, start_day: Date.today.day, readonly: @project.cannot_edit?(:expires_at), :disabled => @project.cannot_edit?(:expires_at)
     = f.input :headline, required: true, input_html: {class: "span12", maxlength: "140"}, readonly: @project.cannot_edit?(:headline)
     = f.input :video, required: true, input_html: {class: "span12"}, readonly: @project.cannot_edit?(:video)
-    = f.input :repository, required: true, as: :url, input_html: {class: "span9"}, readonly: @project.cannot_edit?(:repository)
+    = f.input :repository, required: true, as: :url, input_html: {class: "span12"}, readonly: @project.cannot_edit?(:repository)
     - if @project.persisted?
       = f.input :code_funded, as: :url, input_html: {class: "span12"}, readonly: @project.cannot_edit?(:code_funded)
     = f.input :goal, required: true, input_html: {class: "span12", min: 10, :"data-input-type" => "number",  :"data-input-number-min" => "10"}, readonly: @project.cannot_edit?(:goal)
