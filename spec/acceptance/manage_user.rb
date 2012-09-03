@@ -18,6 +18,7 @@ feature "Manage user" do
     auth_user
     visit "/"
     click_on "Profile"
+    click_on "Edit"
 
     fill_in "Name", with: "Juquinha da Rocha"
     fill_in "Email", with: "juquinha@turbi.me"
