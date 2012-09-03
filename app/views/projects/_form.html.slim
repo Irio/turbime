@@ -3,7 +3,7 @@
     = f.input :name, required: true, autofocus: true, input_html: {class: "span9"}, readonly: @project.cannot_edit?(:name)
     = f.input :description, required: true, input_html: {class: "span9"}, readonly: @project.cannot_edit?(:description)
     = f.input :expires_at, required: true, input_html: {style: "width: auto"}, readonly: @project.cannot_edit?(:expires_at), :disabled => @project.cannot_edit?(:expires_at)
-    = f.input :headline, required: true, input_html: {class: "span9"}, readonly: @project.cannot_edit?(:headline)
+    = f.input :headline, required: true, input_html: {class: "span9", maxlength: "140"}, readonly: @project.cannot_edit?(:headline)
     = f.input :video, required: true, input_html: {class: "span9"}, readonly: @project.cannot_edit?(:video)
     = f.input :repository, required: true, as: :url, input_html: {class: "span9"}, readonly: @project.cannot_edit?(:repository)
     - if @project.persisted?
