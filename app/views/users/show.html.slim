@@ -5,7 +5,7 @@ section
     h1.page-title
       = t('profile')
       - if user_signed_in? && @user == current_user
-        = link_to t('.edit'), edit_user_registration_path, class: 'pull-right'
+        = link_to t('.edit'), edit_user_registration_path, class: 'pull-right', style: "font-size: 18px;font-weight: normal"
     .clear
     .user-info
       .pull-left.photo
