@@ -479,7 +479,6 @@ input{
 		padding-left: 45px;
 		padding-right: 8px;
 		margin-left: 2px;
-    font-size: 20px;
 	}
 	&#user_name{
 		background-position: 3px 9px;
@@ -671,6 +670,7 @@ input{
 }
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{
 	padding: 15px 5px;
+  font-size: 20px;
 }
 
 .flash {
@@ -736,7 +736,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   }
 }
 .project-description{
-	margin: 20px 0px;
+	margin: 20px 0px 80px 0px;
 	h1{
 		font-size: 28px;
 	}
@@ -749,6 +749,14 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 	h4{
 		font-size: 18px;
 	}
+	a{
+		color: $blue;
+		text-decoration: underline;
+	}
+}
+.comments-title{
+	font-size: 28px;
+	margin-bottom: 10px;
 }
 .project-links{
   background-color: #EEE;
@@ -779,9 +787,15 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   }
 }
 
-
 .help-block {
   padding-top: 0px;
   color: $gray;
   margin-bottom: 20px
+}
+
+.new_project #steps{
+  padding: 0 50px;
+  list-style-type: decimal;
+  margin-bottom: 50px;
+  line-height: 30px;
 }
