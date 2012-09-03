@@ -2,7 +2,7 @@
   = t('sign_up')
 .center
   .sign_box.sign_up_box
-    h2.page-title = t(".sign_up")
+    h1.page-title = t(".sign_up")
     br/
     = render "devise/shared/social_links"
     = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
