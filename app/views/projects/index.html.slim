@@ -12,7 +12,7 @@ section.home-intro
 
 section.box-list
   .center
-    h2 = t('.active_projects')
+    h2.page-title = t('.active_projects')
     - @active_projects.each_with_index do |project,i|
       = render 'projects/box', {project: project, i: i}
     .clear
@@ -20,7 +20,7 @@ section.box-list
 - if @expired_projects.size > 0
   section.box-list
     .center
-      h2 = t('.expired_projects')
+      h2.page-title = t('.expired_projects')
       - @expired_projects.each_with_index do |project,i|
         = render 'projects/box', {project: project, i: i}
       .clear
