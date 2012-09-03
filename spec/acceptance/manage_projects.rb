@@ -146,8 +146,8 @@ feature "Managing projects" do
     page.should have_css('.project-code_funded')
   end
 
-  scenario "Should not have link to project code_founded if not expired" do
-    @project = Project.make! visible: true, goal: 1000, expires_at: 1.month.from_now, code_funded: "http://githiub.com/josemarluedke"
+  scenario "Should not have link to project code_founded if don't have the code funded" do
+    @project = Project.make! visible: true, goal: 1000, expires_at: 1.month.from_now, code_funded: nil
     visit project_path(@project)
     page.should_not have_css('.project-code_funded')
   end
