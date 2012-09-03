@@ -60,6 +60,9 @@ h1,h2,h3,h4,h5,h6{
 	color: #9CDBF3;
 	&.page-title{
 		margin: 20px 0px 30px 0px;
+    span {
+      color: $blue;
+    }
 	}
 }
 h1.page-title{
@@ -678,6 +681,36 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 		margin: 0px;
 		border: 0px;
 		@include radius(0px);
+  }
+}
+
+.new_support {
+  .headline {
+    width: 610px
+  }
+  .project {
+    background: #EEE;
+    margin-bottom: 50px;
+    .image{
+      margin-bottom: -3px;
+      img {
+        width: 300px;
+        margin-right: 20px
+      }
+    }
+  }
+  form#new_support {
+    width: 400px;
+    margin: auto;
+    input {
+      width: 400px;
+    }
+    input#support_amount {
+      width: 390px
+    }
+    .paypal_image {
+      margin-top: 10px
+    }
   }
 }
 

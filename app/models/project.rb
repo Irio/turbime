@@ -13,6 +13,9 @@ class Project < ActiveRecord::Base
       I18n.t("activerecord.errors.models.project.attributes.expires_at")
     ) if value && value < 1.week.from_now
   end
+
+  validates_length_of :headline, :maximum => 140
+
   has_vimeo_video :video, :message => I18n.t('activerecord.errors.models.project.attributes.vimeo_regex_validation')
 
   # Scopes

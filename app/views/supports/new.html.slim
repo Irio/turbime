@@ -1,11 +1,21 @@
-section.edit_project
+section.new_support
   .center
-    h1.page-title = @project.name
+    h1.page-title
+      | Backing: 
+      a = link_to @project.name, project_path(@project)
+    .project
+      .image.pull-left
+        = image_tag @project.image
+      .headline.pull-left
+        = simple_format @project.headline
+      .clear
 
-    p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
     = simple_form_for @support, url: project_supports_path(params[:project_id]) do |f|
-      .model-body.form-inputs
-        = f.input :amount, pattern: "\d+[\.\d+]?", title: t('only_numbers')
-        = f.input :terms, as: :boolean
-        = f.button :submit, class: "btn-primary"
+        .model-body.form-inputs
+          = f.input :amount, pattern: "\d+[\.\d+]?", title: t('only_numbers')
+          = f.input :terms, as: :boolean, label: "I accept the terms"
+          = f.button :submit, class: "btn btn-large", value: "Pay now"
+          .paypal_image.pull-right
+            = image_tag('paypal.jpg')
+          .clear
