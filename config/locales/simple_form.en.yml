@@ -19,7 +19,9 @@ en:
     #       email: 'E-mail to sign in.'
     #     edit:
     #       email: 'E-mail.'
-    # hints:
+    hints:
+      project:
+        description: "You can use markdown. See more <a href='http://daringfireball.net/projects/markdown/' target='_blank'>here</a>."
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'

@@ -12,23 +12,30 @@ section
         img src="#{@user.avatar_url}" alt="#{@user.name}"
       .pull-left.about
         h2 = @user.name
-        p = simple_format @user.bio
         .social
           ul
             li.email
-              = mail_to @user.email, @user.email, :target => '_blank'
+              - mail_content = capture do
+                span = @user.email
+              = mail_to @user.email, mail_content, :target => '_blank'
             - if @user.github
               li.github
-                = link_to @user.github, @user.github, :target => '_blank'
+                = link_to @user.github, :target => '_blank' do
+                  span = @user.github
             - if @user.facebook
               li.facebook
-                = link_to @user.facebook, @user.facebook, :target => '_blank'
+                = link_to @user.facebook, :target => '_blank' do
+                  span = @user.facebook
             - if @user.twitter
               li.twitter
-                = link_to @user.twitter, @user.twitter, :target => '_blank'
+                = link_to @user.twitter, :target => '_blank' do
+                  span = @user.twitter
             - if @user.site
               li.site
-                = link_to @user.site, @user.site, :target => '_blank'
+                = link_to @user.site, :target => '_blank' do
+                  span = @user.site
+
+        = simple_format @user.bio
       .clear
     section.box-list
       .center
