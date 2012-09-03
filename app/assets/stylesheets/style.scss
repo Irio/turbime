@@ -479,7 +479,6 @@ input{
 		padding-left: 45px;
 		padding-right: 8px;
 		margin-left: 2px;
-    font-size: 20px;
 	}
 	&#user_name{
 		background-position: 3px 9px;
@@ -671,6 +670,7 @@ input{
 }
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{
 	padding: 15px 5px;
+  font-size: 20px;
 }
 
 .flash {
