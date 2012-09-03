@@ -541,19 +541,34 @@ input{
 			line-height: 20px;
 		}
 		.social{
+			ul{
+				margin: 20px 0px;
+				height: 40px;
+				text-align: center;
+			}
 			li{
 				height: 40px;
 				margin: 2px 0px;
+				display: inline;
 				a{
-					padding: 10px 0px;
-					line-height: 40px;
-					padding-left: 45px;
+//					padding: 10px 0px;
+					height: 40px;
+					width: 40px;
+//					padding-left: 45px;
 					background-repeat: no-repeat;
 					background-position: left center;
+					display: inline-block;
+					span{
+						visibility: hidden;
+						width: 40px;
+						height: 40px;
+						overflow: hidden;
+						display: inline-block;
+					}
 				}
 				&.email a{
 					background-image: url("web-mail.gif");
-					background-position: 3px center;
+					background-position: 4px center;
 				}
 				&.facebook a{
 					background-image: url("web-facebook.png");
