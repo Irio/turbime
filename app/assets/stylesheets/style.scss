@@ -722,8 +722,13 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     input {
       width: 400px;
     }
-    input#support_amount {
+    input#support_amount, textarea {
       width: 390px
+    }
+    textarea {
+      color: $gray;
+      padding-top: 0px;
+      height: 100px
     }
     .paypal_image {
       margin-top: 10px
@@ -782,9 +787,15 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   }
 }
 
-
 .help-block {
   padding-top: 0px;
   color: $gray;
   margin-bottom: 20px
+}
+
+.new_project #steps{
+  padding: 0 50px;
+  list-style-type: decimal;
+  margin-bottom: 50px;
+  line-height: 30px;
 }
