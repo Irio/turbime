@@ -717,6 +717,9 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   form#new_support {
     width: 400px;
     margin: auto;
+    label {
+      color: $gray;
+    }
     input {
       width: 400px;
     }
@@ -770,4 +773,11 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     position: relative;
     top: -24px;
   }
+}
+
+
+.help-block {
+  padding-top: 0px;
+  color: $gray;
+  margin-bottom: 20px
 }
