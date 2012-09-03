@@ -26,8 +26,8 @@ class Project < ActiveRecord::Base
   auto_html_for :description do
     html_escape
     image
-    youtube :width => 400, :height => 250
-    vimeo :width => 400, :height => 250
+    youtube :width => 460, :height => 262
+    vimeo :width => 460, :height => 262
     redcarpet
     link :target => "_blank"
   end
