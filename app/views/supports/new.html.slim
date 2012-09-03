@@ -14,6 +14,7 @@ section.new_support
     = simple_form_for @support, url: project_supports_path(params[:project_id]) do |f|
         .model-body.form-inputs
           = f.input :amount, pattern: "\d+[\.\d+]?", title: t('only_numbers')
+          = text_area_tag :terms_text, File.read("#{Rails.root}/app/views/supports/terms.#{I18n.locale}.txt")
           = f.input :terms, as: :boolean, label: "I accept the terms"
           = f.button :submit, class: "btn btn-large", value: "Pay now"
           .paypal_image.pull-right

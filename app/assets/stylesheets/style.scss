@@ -292,10 +292,10 @@ a#logo{
 	min-width: 940px;
 	width: 100%;
 	.all{
-		background: url("bg-footer.png") repeat center top;
+//		background: url("bg-footer.png") repeat center top;
 		min-width: 940px;
 		width: 100%;
-		min-height: 286px;
+		min-height: 216px;
 		padding-top: 50px;
 		.text, .devs li{
 			background: url("time.png") no-repeat;
@@ -408,7 +408,7 @@ a#logo{
 				line-height: 18px;
 				font-size: 16px;
 				padding-top: 17px;
-				width: 200px;
+				width: 180px;
 			}
 		}
 		&.span3, .span3{
@@ -552,7 +552,6 @@ input{
 			ul{
 				margin: 20px 0px;
 				height: 40px;
-				text-align: center;
 			}
 			li{
 				height: 40px;
@@ -723,15 +722,34 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     input {
       width: 400px;
     }
-    input#support_amount {
+    input#support_amount, textarea {
       width: 390px
+    }
+    textarea {
+      color: $gray;
+      padding-top: 0px;
+      height: 100px
     }
     .paypal_image {
       margin-top: 10px
     }
   }
 }
-
+.project-description{
+	margin: 20px 0px;
+	h1{
+		font-size: 28px;
+	}
+	h2{
+		font-size: 24px;
+	}
+	h3{
+		font-size: 20px;
+	}
+	h4{
+		font-size: 18px;
+	}
+}
 .project-links{
   background-color: #EEE;
   border: 2px solid #DADADA;
