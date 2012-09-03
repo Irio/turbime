@@ -46,7 +46,7 @@ section
           .project-code_funded.span5.btn
             = link_to @project.code_funded.gsub(/http(s)?:\/\//, ''), @project.code_funded
         - if @project.repository.present?
-          .project-repository[class="#{@project.code_funded? ? 'span5 offset1' : 'span9 offset1'}"]
+          .project-repository[class="#{@project.code_funded? ? 'span5 offset1' : 'span9 offset0'}"]
             = image_tag "web-github.png"
             = link_to @project.repository.gsub(/http(s)?:\/\//, ''), @project.repository
 

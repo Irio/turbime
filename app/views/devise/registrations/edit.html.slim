@@ -48,8 +48,9 @@
         .modal-footer
           = f.button :submit, t(".update"), class: "btn btn-large", style: "width: 935px"
 
-  .row style="margin-top: 20px"
-    .span6
-      h3 = t(".cancel_my_account")
-      p
-        | #{t(".unhappy")} #{link_to t(".cancel_my_account"), registration_path(resource_name), :data => { :confirm => t(".are_you_sure") }, :method => :delete}.
+  - unless @user.projects.count > 0
+    .row style="margin-top: 20px"
+      .span6
+        h3 = t(".cancel_my_account")
+        p
+          | #{t(".unhappy")} #{link_to t(".cancel_my_account"), registration_path(resource_name), :data => { :confirm => t(".are_you_sure") }, :method => :delete}.

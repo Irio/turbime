@@ -30,6 +30,7 @@ gem 'simple_form'
 gem 'auto_html'
 gem 'has_vimeo_video'
 gem 'paypal-express'
+gem "delorean"
 
 # Administration
 #gem 'activeadmin'
@@ -60,5 +61,4 @@ group :development, :test do
   gem "jasmine"
   gem "pry"
   gem 'awesome_print'
-  gem "delorean"
 end
