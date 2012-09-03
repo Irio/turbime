@@ -728,7 +728,21 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     }
   }
 }
-
+.project-description{
+	margin: 20px 0px;
+	h1{
+		font-size: 28px;
+	}
+	h2{
+		font-size: 24px;
+	}
+	h3{
+		font-size: 20px;
+	}
+	h4{
+		font-size: 18px;
+	}
+}
 .project-links{
   background-color: #EEE;
   border: 2px solid #DADADA;
