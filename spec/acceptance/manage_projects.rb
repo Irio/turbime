@@ -26,7 +26,7 @@ feature "Managing projects" do
     select_date (Date.current + 2.weeks), from: "project_expires_at"
     click_on "Create project"
 
-    page.should have_content("Your project will be approved by our team.")
+    page.should have_content("This project still need be approved by our team.")
   end
 
   scenario "Project's owner can edit it's project" do
