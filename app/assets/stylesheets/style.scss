@@ -292,10 +292,10 @@ a#logo{
 	min-width: 940px;
 	width: 100%;
 	.all{
-		background: url("bg-footer.png") repeat center top;
+//		background: url("bg-footer.png") repeat center top;
 		min-width: 940px;
 		width: 100%;
-		min-height: 286px;
+		min-height: 216px;
 		padding-top: 50px;
 		.text, .devs li{
 			background: url("time.png") no-repeat;
@@ -552,7 +552,6 @@ input{
 			ul{
 				margin: 20px 0px;
 				height: 40px;
-				text-align: center;
 			}
 			li{
 				height: 40px;
