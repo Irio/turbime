@@ -57,14 +57,22 @@ a, a:hover, a:focus{
 h1,h2,h3,h4,h5,h6{
 	font-weight: bold;
 	font-family: 'Kameron', Georgia, serif;
+	color: #9CDBF3;
 	&.page-title{
-		color: #9CDBF3;
-		font-size: 44px;
 		margin: 20px 0px 30px 0px;
     span {
       color: $blue;
     }
 	}
+}
+h1.page-title{
+  font-size: 44px;
+}
+h2.page-title{
+  width: 280px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
 }
 strong, b{
 	font-weight: bold;
